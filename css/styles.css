@@ -352,3 +352,4 @@ h3 { font-size: 24px; }
 .onglets-ui span { text-align: center; font-weight: 800; padding: 5px 2px; border-radius: 999px; color: var(--discret); white-space: nowrap; }
 .onglets-ui span.actif { background: var(--encre); color: #fff; }
 .profil-ui .cartes-ui--2 .tcg { aspect-ratio: 63 / 52; }
+.intro .note-apercu--forte { font-weight: 700; color: var(--ambre); background: var(--ambre-pale); display: inline-block; padding: 6px 12px; border-radius: 10px; }
