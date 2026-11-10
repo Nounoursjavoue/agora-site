@@ -336,9 +336,8 @@ h3 { font-size: 24px; }
 
 /* ---------- Profil (écrans) ---------- */
 #profil .axe { background: var(--surface); border: 1px solid var(--ligne); }
-.banniere-ui { height: 17%; flex-shrink: 0; background: #C9B8A6 url(../img/banniere-profil.webp) center 55% / cover no-repeat; position: relative; }
-.banniere-ui__photo { position: absolute; left: 8px; top: 8px; width: 18px; height: 18px; border-radius: 50%; background: rgba(17, 24, 39, .55); }
-.profil-ui { padding-top: 0; gap: 8px; overflow: visible; }
+.banniere-ui { height: 23%; flex-shrink: 0; background: #C9B8A6 url(../img/banniere-profil.webp) center 55% / cover no-repeat; position: relative; }
+.profil-ui { padding-top: 0; gap: 7px; overflow: visible; min-height: 0; }
 .ecran .nav-ui { position: relative; z-index: 1; }
 .avatar-ui { position: relative; z-index: 1; }
 .profil-ui__haut { display: flex; justify-content: space-between; align-items: flex-end; margin-top: -22px; }
@@ -368,3 +367,5 @@ h3 { font-size: 24px; }
 .echange-ui__recu .tcg-img { width: 72%; }
 .credit-ui { margin: -4px 0 0; font-size: .8em; color: var(--discret); text-align: right; }
 .avertissement-ui { font-weight: 800; color: var(--ambre); background: var(--ambre-pale); border-radius: 8px; padding: 5px 8px; }
+.profil-ui .carte-ui { padding: 6px 9px; }
+.profil-ui .tcg-img--mini { width: 22px; }
