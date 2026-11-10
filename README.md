@@ -25,6 +25,7 @@ js/main.js                    formulaire de liste d'attente, envoyé à Formspre
 js/questionnaire.js           questionnaire : questions selon le profil, envoi à Formspree
 js/navigation.js              défilement vers les sections sans « #ancre » dans l'adresse
 *.html à la racine            anciennes adresses, redirigées vers les nouvelles
+img/cartes/                   images des cartes Pokémon des maquettes (WebP, 300 px de large)
 favicon.svg                   icône α de l'onglet
 .nojekyll                     indique à GitHub Pages de servir les fichiers tels quels
 ```
@@ -78,6 +79,8 @@ Agora repose sur la confiance : le site ne doit contenir que des informations vr
 - Les écrans de téléphone sont des maquettes, et la mention qui le dit doit rester visible.
 - Chaque chiffre cite sa source, avec la formulation exacte de l'étude.
 - Une fonctionnalité ou un tarif non encore disponible est présenté comme prévu.
+- Les images de cartes Pokémon portent la mention « © Pokémon » sous chaque groupe de cartes, et la
+  mention de marque reste en pied de page. Pas de logo Pokémon ni de partenariat suggéré.
 - Tout nouveau prestataire qui reçoit des données doit être ajouté à `confidentialite/index.html`.
 
 ## Nom de domaine

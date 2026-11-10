@@ -353,3 +353,17 @@ h3 { font-size: 24px; }
 .onglets-ui span.actif { background: var(--encre); color: #fff; }
 .profil-ui .cartes-ui--2 .tcg { aspect-ratio: 63 / 52; }
 .intro .note-apercu--forte { font-weight: 700; color: var(--ambre); background: var(--ambre-pale); display: inline-block; padding: 6px 12px; border-radius: 10px; }
+
+/* Vraies cartes dans les maquettes (images © Pokémon) */
+.tcg-img { display: block; width: 100%; height: auto; aspect-ratio: 63 / 88; object-fit: cover; border-radius: 4px; box-shadow: 0 1px 3px rgba(17, 24, 39, .18); background: #E9EBF2; }
+.tcg-img--mini { width: 26px; flex-shrink: 0; border-radius: 2px; }
+.cartes-ui--3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.cartes-ui--4 { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 5px; }
+.tcg-photo { position: relative; }
+.tcg-photo > .tag-ui { position: absolute; left: 50%; bottom: 4px; transform: translateX(-50%); font-size: .75em; }
+.tcg-photo--cote { display: flex; flex-direction: column; align-items: center; gap: 3px; }
+.tcg-photo--cote > .tag-ui { position: static; transform: none; }
+.tag-ui--sombre { background: #111827; color: #fff; }
+.echange-ui__recu { display: flex; justify-content: center; }
+.echange-ui__recu .tcg-img { width: 72%; }
+.credit-ui { margin: -4px 0 0; font-size: .8em; color: var(--discret); text-align: right; }
