@@ -1,9 +1,9 @@
 # Agora — site vitrine
 
-Site de présentation d'[Agora](https://nounoursjavoue.github.io/agora-site/), le réseau social
+Site de présentation d'[Agora](https://agora-trade.fr/), le réseau social
 et la place de marché des collectionneurs, avec la liste d'attente de la bêta.
 
-- En ligne : https://nounoursjavoue.github.io/agora-site/
+- En ligne : https://agora-trade.fr/
 - Contact : agoratradefr@gmail.com
 - Réseaux : [@agoratradefr sur Instagram](https://www.instagram.com/agoratradefr/) et [sur X](https://x.com/agoratradefr)
 
@@ -32,7 +32,7 @@ favicon.svg                   icône α de l'onglet
 ## Adresses propres
 
 Chaque page est un dossier contenant un `index.html` : l'adresse affichée est donc
-`/agora-site/questionnaire/` et non `/agora-site/questionnaire.html`.
+`agora-trade.fr/questionnaire/` et non `agora-trade.fr/questionnaire.html`.
 Pour ajouter une page, créez un dossier avec son `index.html` et préfixez les chemins
 des fichiers communs par `../` (`../css/styles.css`, `../js/navigation.js`…).
 
@@ -80,10 +80,18 @@ Agora repose sur la confiance : le site ne doit contenir que des informations vr
 - Une fonctionnalité ou un tarif non encore disponible est présenté comme prévu.
 - Tout nouveau prestataire qui reçoit des données doit être ajouté à `confidentialite/index.html`.
 
-## Passer plus tard à un nom de domaine
+## Nom de domaine
 
-1. Achetez le domaine chez un registraire (OVH, Gandi, Infomaniak…).
-2. Dans **Settings › Pages › Custom domain**, saisissez le domaine, puis créez chez le
-   registraire les enregistrements DNS indiqués par GitHub. Cochez « Enforce HTTPS ».
-3. Si le site part chez un hébergeur payant, copiez les fichiers dans son dossier public
-   et mettez à jour l'hébergeur dans `mentions-legales/index.html`.
+Le site est servi sur **agora-trade.fr** (domaine acheté chez IONOS), toujours hébergé
+gratuitement par GitHub Pages. L'ancienne adresse `nounoursjavoue.github.io/agora-site/`
+redirige automatiquement vers le domaine.
+
+- **Fichier `CNAME`** à la racine : il contient le domaine. Ne pas le supprimer, sinon
+  le site repasse sur l'adresse github.io.
+- **DNS chez IONOS** : quatre enregistrements A sur `@` (185.199.108.153 à 185.199.111.153),
+  quatre AAAA (2606:50c0:8000::153 à 2606:50c0:8003::153) et un CNAME `www` vers
+  `nounoursjavoue.github.io`. Les enregistrements « Mail » d'IONOS sont à garder.
+- **HTTPS** : certificat fourni gratuitement par GitHub ; « Enforce HTTPS » est coché dans
+  **Settings › Pages**.
+- Si le site part un jour chez un hébergeur payant, copiez les fichiers dans son dossier public,
+  changez les enregistrements DNS et mettez à jour l'hébergeur dans `mentions-legales/index.html`.
