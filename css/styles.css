@@ -336,7 +336,7 @@ h3 { font-size: 24px; }
 
 /* ---------- Profil (écrans) ---------- */
 #profil .axe { background: var(--surface); border: 1px solid var(--ligne); }
-.banniere-ui { height: 17%; flex-shrink: 0; background: linear-gradient(135deg, #2B2F45 0%, #3348E8 55%, #8B5CF6 100%); position: relative; }
+.banniere-ui { height: 17%; flex-shrink: 0; background: #C9B8A6 url(../img/banniere-profil.webp) center 55% / cover no-repeat; position: relative; }
 .banniere-ui__photo { position: absolute; left: 8px; top: 8px; width: 18px; height: 18px; border-radius: 50%; background: rgba(17, 24, 39, .55); }
 .profil-ui { padding-top: 0; gap: 8px; overflow: visible; }
 .ecran .nav-ui { position: relative; z-index: 1; }
