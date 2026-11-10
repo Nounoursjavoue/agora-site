@@ -16,20 +16,29 @@ C'est un site statique en HTML, CSS et JavaScript : aucune installation ni compi
 ## Contenu
 
 ```
-index.html              page d'accueil (liste d'attente, chiffres, fonctionnalités, boutiques, feuille de route, contact)
-mentions-legales.html   mentions légales (éditeur, hébergeur)
-confidentialite.html    politique de confidentialité (RGPD, liste d'attente, questionnaire)
-questionnaire.html      questionnaire pour collectionneurs, boutiques et organisateurs
-css/styles.css          couleurs, polices et mise en page (variables en haut du fichier)
-js/main.js              formulaire de liste d'attente, envoyé à Formspree
-js/questionnaire.js     questionnaire : questions selon le profil, envoi à Formspree
-favicon.svg             icône α de l'onglet
-.nojekyll               indique à GitHub Pages de servir les fichiers tels quels
+index.html                    page d'accueil (liste d'attente, chiffres, fonctionnalités, boutiques, feuille de route, contact)
+questionnaire/index.html      questionnaire pour collectionneurs, boutiques et organisateurs
+mentions-legales/index.html   mentions légales (éditeur, hébergeur)
+confidentialite/index.html    politique de confidentialité (RGPD, liste d'attente, questionnaire)
+css/styles.css                couleurs, polices et mise en page (variables en haut du fichier)
+js/main.js                    formulaire de liste d'attente, envoyé à Formspree
+js/questionnaire.js           questionnaire : questions selon le profil, envoi à Formspree
+js/navigation.js              défilement vers les sections sans « #ancre » dans l'adresse
+*.html à la racine            anciennes adresses, redirigées vers les nouvelles
+favicon.svg                   icône α de l'onglet
+.nojekyll                     indique à GitHub Pages de servir les fichiers tels quels
 ```
+
+## Adresses propres
+
+Chaque page est un dossier contenant un `index.html` : l'adresse affichée est donc
+`/agora-site/questionnaire/` et non `/agora-site/questionnaire.html`.
+Pour ajouter une page, créez un dossier avec son `index.html` et préfixez les chemins
+des fichiers communs par `../` (`../css/styles.css`, `../js/navigation.js`…).
 
 ## Voir le site en local
 
-Ouvrez `index.html` dans le navigateur, ou lancez un petit serveur depuis ce dossier :
+Lancez un petit serveur depuis ce dossier (les adresses en dossiers ne marchent pas en ouvrant le fichier par double-clic) :
 
 ```
 python3 -m http.server 8000
@@ -56,7 +65,7 @@ dans Formspree.
 
 ## Questionnaire
 
-`questionnaire.html` affiche des questions différentes selon le profil choisi
+`questionnaire/index.html` affiche des questions différentes selon le profil choisi
 (collectionneur, boutique, organisateur). Les réponses partent sur le même formulaire
 Formspree que la liste d'attente, avec le champ `formulaire: questionnaire` pour les
 distinguer. Pour les recevoir à part, créez un second formulaire Formspree et changez
@@ -69,7 +78,7 @@ Agora repose sur la confiance : le site ne doit contenir que des informations vr
 - Les écrans de téléphone sont des maquettes, et la mention qui le dit doit rester visible.
 - Chaque chiffre cite sa source, avec la formulation exacte de l'étude.
 - Une fonctionnalité ou un tarif non encore disponible est présenté comme prévu.
-- Tout nouveau prestataire qui reçoit des données doit être ajouté à `confidentialite.html`.
+- Tout nouveau prestataire qui reçoit des données doit être ajouté à `confidentialite/index.html`.
 
 ## Passer plus tard à un nom de domaine
 
@@ -77,4 +86,4 @@ Agora repose sur la confiance : le site ne doit contenir que des informations vr
 2. Dans **Settings › Pages › Custom domain**, saisissez le domaine, puis créez chez le
    registraire les enregistrements DNS indiqués par GitHub. Cochez « Enforce HTTPS ».
 3. Si le site part chez un hébergeur payant, copiez les fichiers dans son dossier public
-   et mettez à jour l'hébergeur dans `mentions-legales.html`.
+   et mettez à jour l'hébergeur dans `mentions-legales/index.html`.
