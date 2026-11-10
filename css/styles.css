@@ -1,0 +1,306 @@
+/* ==========================================================
+   Agora — site vitrine
+   Couleurs, typographies et composants
+   ========================================================== */
+
+:root {
+  --bleu: #3348E8;
+  --bleu-fonce: #2638C4;
+  --bleu-pale: #EEF0FF;
+  --encre: #111827;
+  --texte: #374151;
+  --discret: #4B5563;
+  --fond: #F5F6FA;
+  --surface: #FFFFFF;
+  --ligne: #E3E6EE;
+  --bordure: #C9CEDB;
+  --vert: #047857;
+  --vert-pale: #D1FAE5;
+  --ambre: #92400E;
+  --ambre-pale: #FEF3C7;
+  --or: #FFC86B;
+
+  --police-titre: 'Bricolage Grotesque', system-ui, sans-serif;
+  --police-texte: 'Manrope', system-ui, sans-serif;
+  --police-logo: 'Cinzel', Georgia, serif;
+  --police-alpha: 'GFS Didot', Georgia, serif;
+
+  --rayon: 20px;
+  --largeur: 1200px;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--fond);
+  color: var(--encre);
+  font-family: var(--police-texte);
+  font-size: 16px;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+
+img, svg { display: block; }
+
+a { color: var(--bleu-fonce); }
+a:hover { color: #1A2A9E; }
+
+:focus-visible { outline: 3px solid var(--bleu); outline-offset: 3px; border-radius: 6px; }
+
+.visually-hidden {
+  position: absolute !important; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+}
+
+.skip-link {
+  position: absolute; left: 16px; top: -60px; z-index: 100;
+  background: var(--encre); color: #fff; padding: 10px 16px; border-radius: 10px; font-weight: 700;
+}
+.skip-link:focus { top: 12px; color: #fff; }
+
+.container { max-width: var(--largeur); margin: 0 auto; padding: 0 24px; }
+
+.section { padding: 88px 0; }
+.section--blanche { background: var(--surface); }
+
+.surtitre {
+  display: inline-block; font-size: 13px; font-weight: 800; color: var(--bleu-fonce);
+  text-transform: uppercase; letter-spacing: 1px; margin-bottom: 12px;
+}
+
+h1, h2, h3 { font-family: var(--police-titre); margin: 0; line-height: 1.1; font-weight: 800; }
+h1 { font-size: clamp(38px, 6vw, 62px); letter-spacing: -1px; line-height: 1.04; }
+h2 { font-size: clamp(30px, 4vw, 42px); }
+h3 { font-size: 24px; }
+
+.intro { max-width: 720px; margin-bottom: 44px; }
+.intro p { font-size: 18px; color: var(--texte); margin: 14px 0 0; }
+
+/* ---------- Boutons ---------- */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  min-height: 48px; padding: 0 22px; border-radius: 999px; border: 0;
+  font: inherit; font-size: 15px; font-weight: 800; text-decoration: none; cursor: pointer;
+  transition: transform .15s ease, background-color .15s ease;
+}
+.btn:hover { transform: translateY(-1px); }
+.btn--sombre { background: var(--encre); color: #fff; }
+.btn--sombre:hover { background: #000; color: #fff; }
+.btn--bleu { background: var(--bleu); color: #fff; }
+.btn--bleu:hover { background: var(--bleu-fonce); color: #fff; }
+.btn--contour { background: var(--surface); color: var(--encre); border: 1px solid var(--bordure); }
+.btn--contour:hover { color: var(--encre); border-color: var(--encre); }
+
+/* ---------- En-tête ---------- */
+.entete { background: var(--surface); border-bottom: 1px solid var(--ligne); position: sticky; top: 0; z-index: 50; }
+.entete__barre { display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 72px; }
+
+.logo { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--encre); }
+.logo:hover { color: var(--encre); }
+.logo__alpha {
+  width: 40px; height: 40px; border-radius: 11px; background: var(--bleu); color: #fff;
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--police-alpha); font-size: 29px; line-height: 1; padding-bottom: 4px;
+}
+.logo__nom { font-family: var(--police-logo); font-size: 23px; font-weight: 700; letter-spacing: 3px; }
+
+.nav { display: flex; align-items: center; gap: 24px; font-size: 15px; font-weight: 700; }
+.nav a:not(.btn) { color: var(--texte); text-decoration: none; }
+.nav a:not(.btn):hover { color: var(--bleu-fonce); }
+
+/* ---------- Héro ---------- */
+.hero { background: var(--surface); padding: 72px 0 88px; }
+.hero__grille { display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr); gap: 56px; align-items: center; }
+.hero__texte { display: flex; flex-direction: column; gap: 22px; }
+.badge {
+  align-self: flex-start; font-size: 13px; font-weight: 800; color: var(--bleu-fonce);
+  background: var(--bleu-pale); padding: 6px 12px; border-radius: 999px;
+}
+.hero__accroche { font-size: 19px; color: var(--texte); max-width: 560px; margin: 0; }
+.hero__visuel { display: flex; justify-content: center; }
+
+/* ---------- Formulaire liste d'attente ---------- */
+.attente {
+  background: var(--fond); border: 1px solid var(--ligne); border-radius: var(--rayon);
+  padding: 22px; max-width: 580px; scroll-margin-top: 96px;
+}
+.attente__titre { font-size: 16px; font-weight: 800; margin: 0 0 14px; }
+.attente fieldset { border: 0; padding: 0; margin: 0 0 14px; }
+.choix { display: flex; flex-wrap: wrap; gap: 8px; }
+.choix input { position: absolute; opacity: 0; width: 1px; height: 1px; }
+.choix label {
+  min-height: 44px; padding: 0 16px; border-radius: 999px; border: 1px solid var(--bordure);
+  background: var(--surface); display: flex; align-items: center; font-size: 14px; font-weight: 800; cursor: pointer;
+}
+.choix input:checked + label { background: var(--encre); color: #fff; border-color: var(--encre); }
+.choix input:focus-visible + label { outline: 3px solid var(--bleu); outline-offset: 2px; }
+
+.attente__ligne { display: flex; flex-wrap: wrap; gap: 10px; }
+.attente__ligne input[type="email"] {
+  flex: 1 1 240px; min-width: 0; min-height: 52px; border-radius: 999px; border: 1px solid var(--bordure);
+  background: var(--surface); padding: 0 20px; font: inherit; font-size: 16px; color: var(--encre);
+}
+.attente__ligne .btn { min-height: 52px; font-size: 16px; }
+.consentement { display: flex; gap: 10px; align-items: flex-start; margin-top: 14px; font-size: 13px; color: var(--discret); }
+.consentement input { width: 18px; height: 18px; margin-top: 2px; accent-color: var(--bleu); flex-shrink: 0; }
+.attente__message { margin: 12px 0 0; font-size: 14px; font-weight: 700; }
+.attente__message--erreur { color: #B42318; }
+.attente__merci h3 { font-family: var(--police-texte); font-size: 19px; color: #065F46; margin-bottom: 6px; }
+.attente__merci p { margin: 0; color: var(--texte); }
+
+/* ---------- Chiffres ---------- */
+.chiffres { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+.chiffre { background: var(--surface); border: 1px solid var(--ligne); border-radius: var(--rayon); padding: 28px; }
+.chiffre__valeur { font-family: var(--police-titre); font-size: 54px; font-weight: 800; color: var(--bleu-fonce); line-height: 1; }
+.chiffre__texte { font-size: 17px; font-weight: 600; margin: 12px 0 10px; }
+.chiffre__source { font-size: 13px; color: var(--discret); }
+.chiffre--sombre { background: var(--encre); border-color: var(--encre); color: #fff; }
+.chiffre--sombre .chiffre__valeur { color: var(--or); }
+.chiffre--sombre .chiffre__source { color: var(--bordure); }
+
+/* ---------- Fonctionnalités ---------- */
+.axes { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; }
+.axe { background: var(--fond); border-radius: 24px; padding: 28px; display: flex; flex-direction: column; gap: 24px; }
+.axe ul { margin: 10px 0 0; padding-left: 20px; color: var(--texte); }
+.axe li + li { margin-top: 4px; }
+.axe .telephone { align-self: center; }
+
+/* ---------- Boutiques ---------- */
+.encart-boutique {
+  background: var(--bleu); color: #fff; border-radius: 28px; padding: 48px;
+  display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); gap: 40px; align-items: center;
+}
+.encart-boutique .surtitre { color: #DCE1FF; }
+.encart-boutique ul { margin: 18px 0 0; padding-left: 20px; font-size: 17px; color: var(--bleu-pale); }
+.encart-boutique li + li { margin-top: 6px; }
+.offre { background: var(--surface); color: var(--encre); border-radius: var(--rayon); padding: 28px; display: flex; flex-direction: column; gap: 8px; }
+.offre__etiquette { font-size: 14px; font-weight: 800; color: var(--discret); }
+.offre__prix { font-family: var(--police-titre); font-size: 40px; font-weight: 800; line-height: 1; }
+.offre p { margin: 0 0 10px; color: var(--texte); }
+
+/* ---------- Feuille de route ---------- */
+.etapes { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
+.etape { border: 1px solid var(--ligne); border-radius: var(--rayon); padding: 24px; background: var(--surface); }
+.etape--active { border: 2px solid var(--bleu); background: var(--bleu-pale); }
+.etape__num { font-size: 13px; font-weight: 800; color: var(--discret); }
+.etape--active .etape__num { color: var(--bleu-fonce); }
+.etape__titre { display: block; font-size: 20px; font-weight: 800; margin: 6px 0; }
+.etape p { margin: 0; color: var(--texte); font-size: 15px; }
+
+/* ---------- Contact ---------- */
+.contacts { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
+.carte-contact { background: var(--surface); border: 1px solid var(--ligne); border-radius: 24px; padding: 32px; }
+.carte-contact h2 { font-size: 28px; }
+.carte-contact p { color: var(--texte); margin: 12px 0 18px; }
+
+/* ---------- Pied de page ---------- */
+.pied { background: var(--encre); color: var(--bordure); padding: 32px 0; font-size: 14px; }
+.pied__ligne { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px 24px; }
+.pied a { color: var(--ligne); }
+.pied__liens { display: flex; gap: 16px; }
+.pied__note { flex-basis: 100%; font-size: 12px; color: #9CA3AF; margin: 0; }
+
+/* ---------- Pages légales ---------- */
+.legal { background: var(--surface); padding: 64px 0 88px; }
+.legal .container { max-width: 800px; }
+.legal h1 { font-size: 40px; margin-bottom: 24px; }
+.legal h2 { font-size: 22px; margin: 32px 0 8px; }
+.legal p, .legal li { color: var(--texte); }
+.a-completer { background: var(--ambre-pale); color: var(--ambre); font-weight: 700; padding: 0 4px; border-radius: 4px; }
+
+/* ==========================================================
+   Téléphones : écrans d'Agora reproduits en HTML/CSS
+   ========================================================== */
+.telephone {
+  --l: 290px;
+  width: var(--l); flex-shrink: 0;
+  background: var(--encre); border-radius: 44px; padding: 10px;
+  box-shadow: 0 30px 60px rgba(17, 24, 39, .22);
+}
+.telephone--petit { --l: 250px; border-radius: 38px; padding: 8px; box-shadow: 0 20px 40px rgba(17, 24, 39, .16); }
+.ecran {
+  background: var(--fond); border-radius: 34px; overflow: hidden;
+  aspect-ratio: 390 / 820; display: flex; flex-direction: column; font-size: 11px; line-height: 1.35;
+}
+.telephone--petit .ecran { border-radius: 30px; font-size: 9.5px; }
+.ecran__contenu { flex: 1; padding: 18px 14px 10px; display: flex; flex-direction: column; gap: 10px; overflow: hidden; }
+.ecran__titre { font-family: var(--police-titre); font-weight: 800; font-size: 1.7em; }
+.ecran__entete { display: flex; align-items: center; justify-content: space-between; }
+.ecran__logo { display: flex; align-items: center; gap: 6px; }
+.ecran__logo .logo__alpha { width: 28px; height: 28px; border-radius: 8px; font-size: 20px; padding-bottom: 3px; }
+.ecran__logo span:last-child { font-family: var(--police-logo); font-weight: 700; letter-spacing: 2px; font-size: 1.45em; }
+.cloche { width: 28px; height: 28px; border-radius: 50%; border: 1px solid var(--ligne); background: #fff; display: flex; align-items: center; justify-content: center; }
+.carte-ui { background: #fff; border: 1px solid var(--ligne); border-radius: 12px; padding: 10px; }
+.alerte-ui { background: var(--bleu); color: #fff; border-radius: 14px; padding: 12px; display: flex; flex-direction: column; gap: 6px; }
+.alerte-ui small { font-weight: 800; text-transform: uppercase; letter-spacing: .5px; font-size: .85em; }
+.alerte-ui p { margin: 0; font-weight: 600; font-size: 1.1em; }
+.alerte-ui span { align-self: flex-start; background: #fff; color: var(--bleu-fonce); font-weight: 800; padding: 5px 10px; border-radius: 999px; }
+.ligne-ui { display: flex; align-items: center; gap: 8px; }
+.pastille { width: 34px; height: 34px; border-radius: 9px; flex-shrink: 0; }
+.ui-gras { font-weight: 800; }
+.ui-discret { color: var(--discret); }
+.tag-ui { font-size: .85em; font-weight: 800; padding: 2px 6px; border-radius: 6px; white-space: nowrap; }
+.tag-ui--vert { color: #065F46; background: var(--vert-pale); }
+.tag-ui--bleu { color: var(--bleu-fonce); background: var(--bleu-pale); }
+.tag-ui--ambre { color: var(--ambre); background: var(--ambre-pale); }
+.cartes-ui { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 6px; }
+.cartes-ui--2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.tcg { aspect-ratio: 63 / 80; border-radius: 8px; border: 1px solid rgba(17, 24, 39, .08); padding: 6px; display: flex; flex-direction: column; justify-content: space-between; font-weight: 800; }
+.tcg small { font-size: .8em; text-transform: uppercase; letter-spacing: .3px; }
+.tcg--feu { background: #FFE4D6; color: #9A3412; }
+.tcg--psy { background: #F3E8FF; color: #6B21A8; }
+.tcg--elec { background: #FEF9C3; color: #854D0E; }
+.tcg--eau { background: #DBEAFE; color: #1E40AF; }
+.tcg--plante { background: #DCFCE7; color: #166534; }
+.tcg--tenebres { background: #E5E7EB; color: #1F2937; }
+.stats-ui { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 5px; }
+.stats-ui div { background: #fff; border: 1px solid var(--ligne); border-radius: 9px; padding: 6px; }
+.stats-ui strong { display: block; font-family: var(--police-titre); font-size: 1.35em; }
+.barre-ui { height: 6px; border-radius: 3px; background: #E9EBF2; overflow: hidden; margin-top: 3px; }
+.barre-ui span { display: block; height: 100%; background: var(--bleu); border-radius: 3px; }
+.duo-ui { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
+.bouton-ui { background: var(--bleu); color: #fff; font-weight: 800; text-align: center; padding: 9px; border-radius: 999px; }
+.bouton-ui--contour { background: #fff; color: var(--encre); border: 1px solid var(--bordure); }
+.suivi-ui { display: grid; grid-template-columns: repeat(4, 1fr); gap: 4px; }
+.suivi-ui span { height: 4px; border-radius: 2px; background: #D5D9E4; }
+.suivi-ui span.fait { background: var(--bleu); }
+.nav-ui { display: flex; justify-content: space-around; background: #fff; border-top: 1px solid var(--ligne); padding: 8px 4px 12px; }
+.nav-ui span { display: flex; flex-direction: column; align-items: center; gap: 2px; font-weight: 800; font-size: .85em; color: #6B7280; }
+.nav-ui span.actif { color: var(--bleu-fonce); }
+.nav-ui i { width: 14px; height: 14px; border-radius: 4px; border: 2px solid currentColor; display: block; }
+
+/* ==========================================================
+   Adaptation tablette et téléphone
+   ========================================================== */
+@media (max-width: 980px) {
+  .hero__grille, .encart-boutique { grid-template-columns: 1fr; }
+  .axes { grid-template-columns: 1fr; max-width: 520px; margin: 0 auto; }
+  .etapes { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .chiffres { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 720px) {
+  .nav a:not(.btn) { display: none; }
+  .nav .btn { min-height: 42px; padding: 0 16px; font-size: 14px; }
+  .logo__nom { font-size: 20px; letter-spacing: 2px; }
+  .section { padding: 64px 0; }
+  .hero { padding: 48px 0 64px; }
+  .encart-boutique { padding: 28px; border-radius: 22px; }
+  .etapes, .contacts { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 420px) {
+  .container { padding: 0 16px; }
+  .nav .btn span { display: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .btn { transition: none; }
+}
+
+.intro .note-apercu { font-size: 14px; color: var(--discret); margin-top: 8px; }
+.reseaux { display: flex; flex-wrap: wrap; gap: 10px; }

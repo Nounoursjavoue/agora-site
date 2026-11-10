@@ -1,0 +1,357 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Agora — la place où les collectionneurs se retrouvent</title>
+  <meta name="description" content="Agora réunit réseau social et place de marché pour collectionneurs : inventaire, wishlist, échanges en confiance et boutiques locales. Lancement en France avec les cartes Pokémon.">
+  <meta name="theme-color" content="#3348E8">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Agora — la place où les collectionneurs se retrouvent">
+  <meta property="og:description" content="Gérez votre collection, échangez en confiance et retrouvez les boutiques près de chez vous.">
+  <meta property="og:locale" content="fr_FR">
+
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@700;800&family=Manrope:wght@400;600;700;800&family=Cinzel:wght@700&family=GFS+Didot&display=swap">
+  <link rel="stylesheet" href="css/styles.css">
+  <script src="js/main.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#contenu">Aller au contenu</a>
+
+  <!-- ================= EN-TÊTE ================= -->
+  <header class="entete">
+    <div class="container entete__barre">
+      <a class="logo" href="#haut" aria-label="Agora, retour en haut de la page">
+        <span class="logo__alpha" aria-hidden="true">α</span>
+        <span class="logo__nom" aria-hidden="true">AGORA</span>
+      </a>
+      <nav class="nav" aria-label="Navigation principale">
+        <a href="#fonctionnalites">Fonctionnalités</a>
+        <a href="#boutiques">Boutiques</a>
+        <a href="#feuille-de-route">Feuille de route</a>
+        <a href="#contact">Contact</a>
+        <a class="btn btn--sombre" href="#inscription">Rejoindre<span>la liste d'attente</span></a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="contenu">
+
+    <!-- ================= HÉRO ================= -->
+    <section class="hero" id="haut">
+      <div class="container hero__grille">
+        <div class="hero__texte">
+          <span class="badge">En développement · cartes Pokémon d'abord</span>
+          <h1>La place où les collectionneurs se retrouvent.</h1>
+          <p class="hero__accroche">Gérez votre collection, échangez en confiance et retrouvez les boutiques près de chez vous. Agora démarre avec le TCG Pokémon, puis s'ouvrira à toutes vos collections.</p>
+
+          <div class="attente" id="inscription">
+            <form id="form-attente" novalidate>
+              <p class="attente__titre">Soyez parmi les premiers membres</p>
+              <fieldset>
+                <legend class="visually-hidden">Je suis</legend>
+                <div class="choix">
+                  <input type="radio" id="profil-collectionneur" name="profil" value="collectionneur" checked>
+                  <label for="profil-collectionneur">Je suis collectionneur</label>
+                  <input type="radio" id="profil-boutique" name="profil" value="boutique">
+                  <label for="profil-boutique">Je tiens une boutique</label>
+                </div>
+              </fieldset>
+              <div class="attente__ligne">
+                <label class="visually-hidden" for="email">Adresse e-mail</label>
+                <input type="email" id="email" name="email" placeholder="votre@email.fr" autocomplete="email" required>
+                <button class="btn btn--bleu" type="submit">M'inscrire</button>
+              </div>
+              <label class="consentement">
+                <input type="checkbox" name="consentement" required>
+                <span>J'accepte qu'Agora utilise mon e-mail pour me prévenir du lancement. Désinscription possible à tout moment. <a href="confidentialite.html">Politique de confidentialité</a></span>
+              </label>
+              <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">
+              <p class="attente__message" role="alert" aria-live="assertive"></p>
+            </form>
+            <div class="attente__merci" hidden tabindex="-1">
+              <h3>Merci, vous êtes sur la liste !</h3>
+              <p>Nous vous écrirons dès l'ouverture de la bêta.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero__visuel">
+          <!-- Écran Accueil de l'application -->
+          <div class="telephone" role="img" aria-label="Aperçu de l'écran d'accueil de l'application Agora">
+            <div class="ecran" aria-hidden="true">
+              <div class="ecran__contenu">
+                <div class="ecran__entete">
+                  <div class="ecran__logo"><span class="logo__alpha">α</span><span>AGORA</span></div>
+                  <span class="cloche"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#111827" stroke-width="2.4" stroke-linecap="round"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg></span>
+                </div>
+                <div class="ecran__titre">Bonjour Ahmet</div>
+                <div class="alerte-ui">
+                  <small>Carte de votre wishlist trouvée</small>
+                  <p>Lucas M. propose Dracaufeu ex (151) à l'échange, à 4 km.</p>
+                  <span>Voir la proposition</span>
+                </div>
+                <div class="ui-gras">Restocks près de vous</div>
+                <div class="carte-ui ligne-ui">
+                  <span class="pastille" style="background:#FEF3C7"></span>
+                  <div style="flex:1;min-width:0"><div class="ui-gras">Le Repaire du Joueur</div><div class="ui-discret">Arrivage boosters · il y a 2 h</div></div>
+                  <span class="tag-ui tag-ui--vert">1,2 km</span>
+                </div>
+                <div class="ui-gras">Fil de la communauté</div>
+                <div class="carte-ui" style="display:flex;flex-direction:column;gap:6px">
+                  <div class="ui-gras">Inès B. <span class="ui-discret" style="font-weight:400">· Villeurbanne</span></div>
+                  <div>Enfin le Mew ex après 6 boosters !</div>
+                  <div class="cartes-ui">
+                    <div class="tcg tcg--psy"><small>Psy</small>Mew ex</div>
+                    <div class="tcg tcg--elec"><small>Électrik</small>Pikachu</div>
+                    <div class="tcg tcg--plante"><small>Plante</small>Florizarre</div>
+                  </div>
+                </div>
+              </div>
+              <div class="nav-ui"><span class="actif"><i></i>Accueil</span><span><i></i>Collection</span><span><i></i>Échanges</span><span><i></i>Boutiques</span><span><i></i>Profil</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= CHIFFRES ================= -->
+    <section class="section" aria-labelledby="titre-chiffres">
+      <div class="container">
+        <div class="intro">
+          <h2 id="titre-chiffres">Collectionner est une passion partagée. Échanger, encore un risque.</h2>
+        </div>
+        <div class="chiffres">
+          <article class="chiffre">
+            <div class="chiffre__valeur">79 %</div>
+            <p class="chiffre__texte">des Français ont déjà collectionné au moins un objet.</p>
+            <a class="chiffre__source" href="https://www.ebayinc.com/stories/press-room/fr/etude-ebay-x-ifop-2021-sur-la-collection-et-les-francais/" rel="noopener">Ifop pour eBay, 2021</a>
+          </article>
+          <article class="chiffre">
+            <div class="chiffre__valeur">8 %</div>
+            <p class="chiffre__texte">des Français collectionnent les cartes : Pokémon, Magic, Yu-Gi-Oh!…</p>
+            <a class="chiffre__source" href="https://www.ebayinc.com/stories/press-room/fr/sondage-cartes-a-collectionner-2023/" rel="noopener">YouGov pour eBay, 2023</a>
+          </article>
+          <article class="chiffre chiffre--sombre">
+            <div class="chiffre__valeur">38 %</div>
+            <p class="chiffre__texte">des Français ont déjà renoncé à un achat par peur d'une arnaque.</p>
+            <a class="chiffre__source" href="https://www.mcafee.com/fr-fr/consumer-corporate/newsroom/press-releases/2025/20251125.html" rel="noopener">McAfee, 2025</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= FONCTIONNALITÉS ================= -->
+    <section class="section section--blanche" id="fonctionnalites">
+      <div class="container">
+        <div class="intro">
+          <span class="surtitre">Fonctionnalités</span>
+          <h2>Collectionner. Échanger. Partager.</h2>
+          <p>Tout ce que vous faisiez sur des tableurs, des groupes et des sites d'annonces, réuni dans une seule application. Agora est en cours de développement : voici ce qu'elle permettra de faire.</p>
+          <p class="note-apercu">Les écrans présentés sont des maquettes : les membres, boutiques, échanges et chiffres qui y figurent sont fictifs.</p>
+        </div>
+
+        <div class="axes">
+          <!-- Collectionner -->
+          <article class="axe">
+            <div>
+              <h3>Collectionner</h3>
+              <ul>
+                <li>Inventaire par scan et progression par extension</li>
+                <li>Wishlist avec alerte dès qu'une carte est disponible</li>
+                <li>Cartes, livres, figurines : plusieurs collections</li>
+              </ul>
+            </div>
+            <div class="telephone telephone--petit" role="img" aria-label="Aperçu de l'écran Collection">
+              <div class="ecran" aria-hidden="true">
+                <div class="ecran__contenu">
+                  <div><div class="ui-discret ui-gras" style="text-transform:uppercase;font-size:.85em">Ma collection</div><div class="ecran__titre">Cartes Pokémon ▾</div></div>
+                  <div class="stats-ui">
+                    <div><strong>412</strong><span class="ui-discret">cartes</span></div>
+                    <div><strong>27</strong><span class="ui-discret">à échanger</span></div>
+                    <div style="background:#EEF0FF;border-color:#D6DBFF"><strong style="color:#2638C4">1 284 €</strong><span style="color:#2638C4">valeur</span></div>
+                  </div>
+                  <div class="carte-ui" style="display:flex;flex-direction:column;gap:6px">
+                    <div class="ui-gras">Progression par extension</div>
+                    <div><div class="ligne-ui" style="justify-content:space-between"><span class="ui-gras">151</span><span class="ui-discret">118 / 165</span></div><div class="barre-ui"><span style="width:72%"></span></div></div>
+                    <div><div class="ligne-ui" style="justify-content:space-between"><span class="ui-gras">Évolutions Prismatiques</span><span class="ui-discret">64 / 131</span></div><div class="barre-ui"><span style="width:49%"></span></div></div>
+                  </div>
+                  <div class="cartes-ui cartes-ui--2">
+                    <div class="tcg tcg--tenebres"><small>Ténèbres</small><span class="tag-ui" style="background:#111827;color:#fff;align-self:flex-start">À échanger</span></div>
+                    <div class="tcg tcg--eau"><small>Eau</small><span class="tag-ui" style="background:#111827;color:#fff;align-self:flex-start">À échanger</span></div>
+                  </div>
+                </div>
+                <div class="nav-ui"><span><i></i>Accueil</span><span class="actif"><i></i>Collection</span><span><i></i>Échanges</span><span><i></i>Boutiques</span><span><i></i>Profil</span></div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Échanger -->
+          <article class="axe">
+            <div>
+              <h3>Échanger en confiance</h3>
+              <ul>
+                <li>Réputation et avis sur chaque membre</li>
+                <li>Cote indicative pour des échanges équilibrés</li>
+                <li>Paiement sécurisé ou remise en boutique</li>
+              </ul>
+            </div>
+            <div class="telephone telephone--petit" role="img" aria-label="Aperçu d'une proposition d'échange">
+              <div class="ecran" aria-hidden="true">
+                <div class="ecran__contenu">
+                  <div class="ecran__titre">Proposition d'échange</div>
+                  <div class="carte-ui ligne-ui">
+                    <span class="pastille" style="background:#DBEAFE;border-radius:50%"></span>
+                    <div style="flex:1"><div class="ui-gras">Lucas M.</div><div class="ui-discret">4,9 ★ · 23 échanges</div></div>
+                    <span class="tag-ui tag-ui--vert">Vérifié</span>
+                  </div>
+                  <div class="duo-ui">
+                    <div class="carte-ui" style="display:flex;flex-direction:column;gap:5px"><span class="ui-discret ui-gras">VOUS DONNEZ</span><div class="tcg tcg--tenebres" style="aspect-ratio:2/1">Noctali V</div><div class="tcg tcg--eau" style="aspect-ratio:2/1">Lokhlass ex</div></div>
+                    <div class="carte-ui" style="display:flex;flex-direction:column;gap:5px"><span class="ui-discret ui-gras">VOUS RECEVEZ</span><div class="tcg tcg--feu" style="flex:1;aspect-ratio:auto"><small>Feu · 151</small>Dracaufeu ex</div></div>
+                  </div>
+                  <div style="background:#EEF0FF;color:#1F2A80;border-radius:10px;padding:8px"><b>Cote :</b> 58 € contre 61 €. Échange équilibré.</div>
+                  <div class="suivi-ui"><span class="fait"></span><span></span><span></span><span></span></div>
+                  <div class="bouton-ui">Accepter l'échange</div>
+                  <div class="bouton-ui bouton-ui--contour">Contre-proposer</div>
+                </div>
+                <div class="nav-ui"><span><i></i>Accueil</span><span><i></i>Collection</span><span class="actif"><i></i>Échanges</span><span><i></i>Boutiques</span><span><i></i>Profil</span></div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Partager -->
+          <article class="axe">
+            <div>
+              <h3>Partager en communauté</h3>
+              <ul>
+                <li>Fil pour partager ses pulls et sa vitrine</li>
+                <li>Restocks et tournois des boutiques locales</li>
+                <li>Profil accessible : mode sombre, police dyslexie</li>
+              </ul>
+            </div>
+            <div class="telephone telephone--petit" role="img" aria-label="Aperçu de l'écran Boutiques">
+              <div class="ecran" aria-hidden="true">
+                <div class="ecran__contenu">
+                  <div class="ecran__titre">Boutiques</div>
+                  <div class="carte-ui ui-discret">Lyon, Villeurbanne…</div>
+                  <div class="carte-ui" style="display:flex;flex-direction:column;gap:5px">
+                    <div class="ligne-ui" style="justify-content:space-between"><span class="ui-gras">Le Repaire du Joueur</span><span class="ui-discret">1,2 km</span></div>
+                    <div class="ligne-ui" style="flex-wrap:wrap;gap:4px"><span class="tag-ui tag-ui--bleu">Partenaire</span><span class="tag-ui tag-ui--vert">Point d'échange</span><span class="tag-ui tag-ui--ambre">Restock</span></div>
+                  </div>
+                  <div class="carte-ui" style="display:flex;flex-direction:column;gap:5px">
+                    <div class="ligne-ui" style="justify-content:space-between"><span class="ui-gras">L'Antre du Collectionneur</span><span class="ui-discret">2,1 km</span></div>
+                    <div class="ligne-ui" style="gap:4px"><span class="tag-ui tag-ui--bleu">Partenaire</span><span class="tag-ui tag-ui--vert">Point d'échange</span></div>
+                  </div>
+                  <div class="ui-gras">Prochains événements</div>
+                  <div class="carte-ui ligne-ui">
+                    <div style="background:#EEF0FF;color:#2638C4;border-radius:8px;padding:4px 7px;text-align:center;font-weight:800">sam.<br>24</div>
+                    <div style="flex:1"><div class="ui-gras">Tournoi amical · 14 h</div><div class="ui-discret">12 inscrits</div></div>
+                  </div>
+                </div>
+                <div class="nav-ui"><span><i></i>Accueil</span><span><i></i>Collection</span><span><i></i>Échanges</span><span class="actif"><i></i>Boutiques</span><span><i></i>Profil</span></div>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= BOUTIQUES ================= -->
+    <section class="section" id="boutiques">
+      <div class="container">
+        <div class="encart-boutique">
+          <div>
+            <span class="surtitre">Boutiques indépendantes</span>
+            <h2>Faites venir les collectionneurs dans votre boutique.</h2>
+            <ul>
+              <li>Annoncez vos restocks en quelques clics à la communauté locale</li>
+              <li>Devenez point d'échange en main propre</li>
+              <li>Publiez vos tournois et vos événements</li>
+            </ul>
+          </div>
+          <div class="offre">
+            <span class="offre__etiquette">Offre de lancement prévue</span>
+            <span class="offre__prix">3 mois offerts</span>
+            <p>puis 19,90 € par mois</p>
+            <a class="btn btn--sombre" href="#inscription" data-profil="boutique">Devenir boutique partenaire</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= FEUILLE DE ROUTE ================= -->
+    <section class="section section--blanche" id="feuille-de-route">
+      <div class="container">
+        <div class="intro">
+          <span class="surtitre">Feuille de route</span>
+          <h2>Les cartes Pokémon d'abord, toutes les collections ensuite.</h2>
+        </div>
+        <ol class="etapes">
+          <li class="etape etape--active">
+            <span class="etape__num">Étape 1 · en préparation</span>
+            <span class="etape__titre">TCG Pokémon en France</span>
+            <p>Une bêta est prévue avec les premières boutiques partenaires.</p>
+          </li>
+          <li class="etape">
+            <span class="etape__num">Étape 2</span>
+            <span class="etape__titre">Échanges et Premium</span>
+            <p>Paiement sécurisé, suivi de la valeur, matching de wishlist.</p>
+          </li>
+          <li class="etape">
+            <span class="etape__num">Étape 3</span>
+            <span class="etape__titre">Autres collections</span>
+            <p>Autres jeux de cartes, livres, mangas, figurines…</p>
+          </li>
+          <li class="etape">
+            <span class="etape__num">Étape 4</span>
+            <span class="etape__titre">Europe, puis États-Unis</span>
+            <p>Application multilingue et envois internationaux.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ================= CONTACT ================= -->
+    <section class="section" id="contact">
+      <div class="container contacts">
+        <div class="carte-contact">
+          <h2>Vous voulez soutenir le projet ?</h2>
+          <p>Investisseurs, partenaires, organisateurs de tournois ou de conventions : parlons-en.</p>
+          <a class="btn btn--sombre" href="mailto:agoratradefr@gmail.com">Nous écrire</a>
+        </div>
+        <div class="carte-contact">
+          <h2>Suivez l'aventure</h2>
+          <p>Coulisses du développement, nouveautés et ouvertures de cartes.</p>
+          <div class="reseaux">
+            <a class="btn btn--contour" href="https://www.instagram.com/agoratradefr/" rel="noopener">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.6"/></svg>
+              Instagram
+            </a>
+            <a class="btn btn--contour" href="https://x.com/agoratradefr" rel="noopener">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.2 2.25h3.4l-7.4 8.5 8.7 11h-6.8l-5.3-6.9-6.1 6.9H1.3l7.9-9.1L.9 2.25h7l4.8 6.3zm-1.2 17.5h1.9L7.1 4.2H5.1z"/></svg>
+              X (Twitter)
+            </a>
+          </div>
+          <p class="ui-discret">@agoratradefr sur les deux réseaux</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ================= PIED DE PAGE ================= -->
+  <footer class="pied">
+    <div class="container pied__ligne">
+      <span>© <span id="annee">2026</span> Agora · Projet en développement</span>
+      <span class="pied__liens">
+        <a href="mentions-legales.html">Mentions légales</a>
+        <a href="confidentialite.html">Confidentialité</a>
+      </span>
+      <p class="pied__note">Pokémon est une marque de Nintendo, Creatures et GAME FREAK. Agora n'est ni affilié ni approuvé par The Pokémon Company.</p>
+    </div>
+  </footer>
+</body>
+</html>
