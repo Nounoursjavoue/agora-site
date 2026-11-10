@@ -304,3 +304,28 @@ h3 { font-size: 24px; }
 
 .intro .note-apercu { font-size: 14px; color: var(--discret); margin-top: 8px; }
 .reseaux { display: flex; flex-wrap: wrap; gap: 10px; }
+
+/* ---------- Questionnaire ---------- */
+.quest__intro { font-size: 18px; color: var(--texte); margin: 0 0 32px; }
+.quest { display: flex; flex-direction: column; gap: 28px; }
+.quest__q { border: 0; padding: 0; margin: 0; min-width: 0; }
+.quest__q legend, .quest__label { display: block; font-weight: 800; font-size: 17px; color: var(--encre); margin-bottom: 12px; padding: 0; }
+.quest__label--petit { font-size: 14px; margin: 14px 0 6px; }
+.quest__aide, .quest__requis { font-weight: 600; font-size: 13px; color: var(--discret); margin-left: 6px; }
+.quest__requis { color: var(--bleu-fonce); }
+.quest__champ {
+  width: 100%; min-height: 48px; border-radius: 14px; border: 1px solid var(--bordure);
+  background: var(--surface); padding: 10px 16px; font: inherit; font-size: 16px; color: var(--encre);
+}
+.quest__zone { min-height: 110px; resize: vertical; }
+.quest__bloc { display: flex; flex-direction: column; gap: 28px; padding: 24px; border-radius: var(--rayon); background: var(--fond); border: 1px solid var(--ligne); }
+.quest__bloc[hidden] { display: none; }
+.quest__bloc h2 { margin: 0; }
+.quest .choix label { min-height: 44px; height: auto; padding: 8px 16px; line-height: 1.3; }
+.choix input:disabled + label { opacity: .45; cursor: not-allowed; }
+.quest__envoyer { align-self: flex-start; min-height: 52px; font-size: 16px; }
+.quest__merci h2 { color: #065F46; margin-bottom: 8px; }
+.questionnaire-appel { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 20px; background: var(--surface); border: 1px solid var(--ligne); border-radius: 24px; padding: 32px; }
+.questionnaire-appel h2 { font-size: 28px; }
+.questionnaire-appel p { margin: 8px 0 0; color: var(--texte); max-width: 620px; }
+.attente__merci p + p { margin-top: 8px; }

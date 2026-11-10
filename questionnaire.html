@@ -1,0 +1,271 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Questionnaire — Agora</title>
+  <meta name="description" content="Deux minutes pour aider à construire Agora, le réseau social et la place de marché des collectionneurs.">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@700;800&family=Manrope:wght@400;600;700;800&family=Cinzel:wght@700&family=GFS+Didot&display=swap">
+  <link rel="stylesheet" href="css/styles.css">
+  <script src="js/questionnaire.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#contenu">Aller au contenu</a>
+  <header class="entete">
+    <div class="container entete__barre">
+      <a class="logo" href="index.html" aria-label="Agora, retour à l'accueil">
+        <span class="logo__alpha" aria-hidden="true">α</span>
+        <span class="logo__nom" aria-hidden="true">AGORA</span>
+      </a>
+      <nav class="nav" aria-label="Navigation principale"><a class="btn btn--sombre" href="index.html#inscription"><span>Rejoindre<span class="btn__suite"> la liste d'attente</span></span></a></nav>
+    </div>
+  </header>
+
+  <main class="legal" id="contenu">
+    <div class="container">
+      <h1>Aidez-nous à construire Agora</h1>
+      <p class="quest__intro">Agora est en cours de développement. Vos réponses nous disent ce dont les collectionneurs et les boutiques ont vraiment besoin. Comptez environ 2 minutes. Le questionnaire est réservé aux personnes de 15 ans et plus.</p>
+
+      <form id="form-questionnaire" class="quest" novalidate>
+
+        <!-- ===== Pour tout le monde ===== -->
+        <fieldset class="quest__q">
+          <legend>Vous êtes : <span class="quest__requis">obligatoire</span></legend>
+          <div class="choix">
+            <input type="radio" id="p-collectionneur" name="profil" value="Collectionneur"><label for="p-collectionneur">Collectionneur</label>
+            <input type="radio" id="p-boutique" name="profil" value="Boutique"><label for="p-boutique">Boutique</label>
+            <input type="radio" id="p-organisateur" name="profil" value="Organisateur d'événements"><label for="p-organisateur">Organisateur d'événements (tournois, salons)</label>
+          </div>
+        </fieldset>
+
+        <fieldset class="quest__q">
+          <legend>Votre âge : <span class="quest__requis">obligatoire</span></legend>
+          <div class="choix">
+            <input type="radio" id="a1" name="age" value="15-17 ans"><label for="a1">15-17 ans</label>
+            <input type="radio" id="a2" name="age" value="18-24 ans"><label for="a2">18-24 ans</label>
+            <input type="radio" id="a3" name="age" value="25-34 ans"><label for="a3">25-34 ans</label>
+            <input type="radio" id="a4" name="age" value="35-44 ans"><label for="a4">35-44 ans</label>
+            <input type="radio" id="a5" name="age" value="45 ans et plus"><label for="a5">45 ans et plus</label>
+          </div>
+        </fieldset>
+
+        <div class="quest__q">
+          <label class="quest__label" for="departement">Votre département</label>
+          <input class="quest__champ" type="text" id="departement" name="departement" placeholder="Par exemple : 78, Yvelines" autocomplete="off">
+        </div>
+
+        <!-- ===== Collectionneurs ===== -->
+        <div class="quest__bloc" data-pour="Collectionneur" hidden>
+          <h2>Votre collection</h2>
+
+          <fieldset class="quest__q">
+            <legend>Que collectionnez-vous ? <span class="quest__aide">plusieurs réponses possibles</span></legend>
+            <div class="choix">
+              <input type="checkbox" id="c1" name="collections" value="JCC Pokémon"><label for="c1">JCC Pokémon</label>
+              <input type="checkbox" id="c2" name="collections" value="One Piece"><label for="c2">One Piece</label>
+              <input type="checkbox" id="c3" name="collections" value="Riftbound"><label for="c3">Riftbound</label>
+              <input type="checkbox" id="c4" name="collections" value="Lorcana"><label for="c4">Lorcana</label>
+              <input type="checkbox" id="c5" name="collections" value="Yu-Gi-Oh!"><label for="c5">Yu-Gi-Oh!</label>
+              <input type="checkbox" id="c6" name="collections" value="Magic"><label for="c6">Magic</label>
+              <input type="checkbox" id="c7" name="collections" value="Livres"><label for="c7">Livres</label>
+              <input type="checkbox" id="c8" name="collections" value="Mangas"><label for="c8">Mangas</label>
+              <input type="checkbox" id="c9" name="collections" value="Figurines"><label for="c9">Figurines</label>
+              <input type="checkbox" id="c10" name="collections" value="Vinyles"><label for="c10">Vinyles</label>
+            </div>
+            <label class="quest__label quest__label--petit" for="collections_autre">Autre :</label>
+            <input class="quest__champ" type="text" id="collections_autre" name="collections_autre" placeholder="Ce que vous collectionnez d'autre">
+          </fieldset>
+
+          <fieldset class="quest__q">
+            <legend>Qu'utilisez-vous aujourd'hui pour gérer, acheter ou échanger ? <span class="quest__aide">plusieurs réponses possibles</span></legend>
+            <div class="choix">
+              <input type="checkbox" id="o1" name="outils" value="Cardmarket"><label for="o1">Cardmarket</label>
+              <input type="checkbox" id="o2" name="outils" value="Vinted"><label for="o2">Vinted</label>
+              <input type="checkbox" id="o3" name="outils" value="Leboncoin"><label for="o3">Leboncoin</label>
+              <input type="checkbox" id="o4" name="outils" value="eBay"><label for="o4">eBay</label>
+              <input type="checkbox" id="o5" name="outils" value="Groupes Facebook"><label for="o5">Groupes Facebook</label>
+              <input type="checkbox" id="o6" name="outils" value="Serveurs Discord"><label for="o6">Serveurs Discord</label>
+              <input type="checkbox" id="o7" name="outils" value="Tableur ou appli de collection"><label for="o7">Tableur ou appli de collection</label>
+              <input type="checkbox" id="o8" name="outils" value="Rien"><label for="o8">Rien</label>
+            </div>
+          </fieldset>
+
+          <fieldset class="quest__q" data-max="3">
+            <legend>Qu'est-ce qui vous pose le plus problème aujourd'hui ? <span class="quest__aide">3 choix maximum</span></legend>
+            <div class="choix">
+              <input type="checkbox" id="pb1" name="problemes" value="La peur des arnaques"><label for="pb1">La peur des arnaques</label>
+              <input type="checkbox" id="pb2" name="problemes" value="Trouver qui a la carte que je cherche"><label for="pb2">Trouver qui a la carte que je cherche</label>
+              <input type="checkbox" id="pb3" name="problemes" value="Connaître la vraie valeur d'une carte"><label for="pb3">Connaître la vraie valeur d'une carte</label>
+              <input type="checkbox" id="pb4" name="problemes" value="Suivre ce que je possède"><label for="pb4">Suivre ce que je possède</label>
+              <input type="checkbox" id="pb5" name="problemes" value="Trouver les restocks et événements près de chez moi"><label for="pb5">Trouver les restocks et événements près de chez moi</label>
+              <input type="checkbox" id="pb6" name="problemes" value="Rencontrer d'autres collectionneurs"><label for="pb6">Rencontrer d'autres collectionneurs</label>
+            </div>
+          </fieldset>
+
+          <fieldset class="quest__q">
+            <legend>Qu'aimeriez-vous trouver dans un réseau social pour collectionneurs ? <span class="quest__aide">plusieurs réponses possibles</span></legend>
+            <div class="choix">
+              <input type="checkbox" id="s1" name="souhaits" value="Tout centraliser pour toutes mes collections"><label for="s1">Tout centraliser pour toutes mes collections</label>
+              <input type="checkbox" id="s2" name="souhaits" value="Des échanges simples avec des points de rencontre en boutique"><label for="s2">Des échanges simples avec des points de rencontre en boutique</label>
+              <input type="checkbox" id="s3" name="souhaits" value="Être alerté quand une carte de ma wishlist est proposée"><label for="s3">Être alerté quand une carte de ma wishlist est proposée</label>
+              <input type="checkbox" id="s4" name="souhaits" value="Une cote indicative des cartes"><label for="s4">Une cote indicative des cartes</label>
+              <input type="checkbox" id="s5" name="souhaits" value="Un paiement sécurisé pour les ventes entre membres"><label for="s5">Un paiement sécurisé pour les ventes entre membres</label>
+              <input type="checkbox" id="s6" name="souhaits" value="Les restocks et événements des boutiques près de chez moi"><label for="s6">Les restocks et événements des boutiques près de chez moi</label>
+              <input type="checkbox" id="s7" name="souhaits" value="Une vitrine pour montrer mes plus belles pièces"><label for="s7">Une vitrine pour montrer mes plus belles pièces</label>
+            </div>
+          </fieldset>
+
+          <fieldset class="quest__q">
+            <legend>Combien d'échanges ou de ventes faites-vous par mois ?</legend>
+            <div class="choix">
+              <input type="radio" id="f1" name="frequence" value="0"><label for="f1">Aucun</label>
+              <input type="radio" id="f2" name="frequence" value="1 à 3"><label for="f2">1 à 3</label>
+              <input type="radio" id="f3" name="frequence" value="4 à 10"><label for="f3">4 à 10</label>
+              <input type="radio" id="f4" name="frequence" value="Plus de 10"><label for="f4">Plus de 10</label>
+            </div>
+          </fieldset>
+
+          <fieldset class="quest__q">
+            <legend>Seriez-vous prêt à payer un abonnement Premium (alertes wishlist, suivi de la valeur de votre collection) ?</legend>
+            <div class="choix">
+              <input type="radio" id="pr1" name="premium" value="Non"><label for="pr1">Non</label>
+              <input type="radio" id="pr2" name="premium" value="Oui, jusqu'à 3 € par mois"><label for="pr2">Oui, jusqu'à 3 €/mois</label>
+              <input type="radio" id="pr3" name="premium" value="Oui, jusqu'à 5 € par mois"><label for="pr3">Oui, jusqu'à 5 €/mois</label>
+              <input type="radio" id="pr4" name="premium" value="Oui, plus de 5 € par mois"><label for="pr4">Oui, plus</label>
+            </div>
+          </fieldset>
+        </div>
+
+        <!-- ===== Boutiques ===== -->
+        <div class="quest__bloc" data-pour="Boutique" hidden>
+          <h2>Votre boutique</h2>
+
+          <fieldset class="quest__q">
+            <legend>Quels produits vendez-vous ? <span class="quest__aide">plusieurs réponses possibles</span></legend>
+            <div class="choix">
+              <input type="checkbox" id="b1" name="produits" value="JCC Pokémon"><label for="b1">JCC Pokémon</label>
+              <input type="checkbox" id="b2" name="produits" value="One Piece"><label for="b2">One Piece</label>
+              <input type="checkbox" id="b3" name="produits" value="Riftbound"><label for="b3">Riftbound</label>
+              <input type="checkbox" id="b4" name="produits" value="Lorcana"><label for="b4">Lorcana</label>
+              <input type="checkbox" id="b5" name="produits" value="Yu-Gi-Oh!"><label for="b5">Yu-Gi-Oh!</label>
+              <input type="checkbox" id="b6" name="produits" value="Magic"><label for="b6">Magic</label>
+              <input type="checkbox" id="b7" name="produits" value="Livres et mangas"><label for="b7">Livres et mangas</label>
+              <input type="checkbox" id="b8" name="produits" value="Figurines"><label for="b8">Figurines</label>
+              <input type="checkbox" id="b9" name="produits" value="Vinyles"><label for="b9">Vinyles</label>
+            </div>
+            <label class="quest__label quest__label--petit" for="produits_autre">Autre :</label>
+            <input class="quest__champ" type="text" id="produits_autre" name="produits_autre">
+          </fieldset>
+
+          <fieldset class="quest__q">
+            <legend>Organisez-vous des événements ? <span class="quest__aide">plusieurs réponses possibles</span></legend>
+            <div class="choix">
+              <input type="checkbox" id="e1" name="evenements_boutique" value="Non"><label for="e1">Non</label>
+              <input type="checkbox" id="e2" name="evenements_boutique" value="Tournois"><label for="e2">Tournois</label>
+              <input type="checkbox" id="e3" name="evenements_boutique" value="Avant-premières"><label for="e3">Avant-premières</label>
+              <input type="checkbox" id="e4" name="evenements_boutique" value="Autre"><label for="e4">Autre</label>
+            </div>
+          </fieldset>
+
+          <fieldset class="quest__q">
+            <legend>Comment prévenez-vous vos clients d'un restock aujourd'hui ? <span class="quest__aide">plusieurs réponses possibles</span></legend>
+            <div class="choix">
+              <input type="checkbox" id="r1" name="annonce_restock" value="Instagram"><label for="r1">Instagram</label>
+              <input type="checkbox" id="r2" name="annonce_restock" value="Facebook"><label for="r2">Facebook</label>
+              <input type="checkbox" id="r3" name="annonce_restock" value="Discord"><label for="r3">Discord</label>
+              <input type="checkbox" id="r4" name="annonce_restock" value="Newsletter"><label for="r4">Newsletter</label>
+              <input type="checkbox" id="r5" name="annonce_restock" value="Rien"><label for="r5">Rien</label>
+            </div>
+          </fieldset>
+
+          <fieldset class="quest__q">
+            <legend>Seriez-vous intéressé pour devenir point d'échange, où les membres se retrouvent dans votre boutique pour échanger ?</legend>
+            <div class="choix">
+              <input type="radio" id="pe1" name="point_echange" value="Oui"><label for="pe1">Oui</label>
+              <input type="radio" id="pe2" name="point_echange" value="Peut-être"><label for="pe2">Peut-être</label>
+              <input type="radio" id="pe3" name="point_echange" value="Non"><label for="pe3">Non</label>
+            </div>
+          </fieldset>
+
+          <fieldset class="quest__q">
+            <legend>Un abonnement boutique à 19,90 € par mois, après 3 mois offerts, vous paraît :</legend>
+            <div class="choix">
+              <input type="radio" id="ab1" name="avis_abonnement" value="Raisonnable"><label for="ab1">Raisonnable</label>
+              <input type="radio" id="ab2" name="avis_abonnement" value="Trop cher"><label for="ab2">Trop cher</label>
+              <input type="radio" id="ab3" name="avis_abonnement" value="À voir selon les résultats"><label for="ab3">À voir selon les résultats</label>
+            </div>
+          </fieldset>
+        </div>
+
+        <!-- ===== Organisateurs ===== -->
+        <div class="quest__bloc" data-pour="Organisateur d'événements" hidden>
+          <h2>Vos événements</h2>
+
+          <fieldset class="quest__q">
+            <legend>Quels événements organisez-vous ? <span class="quest__aide">plusieurs réponses possibles</span></legend>
+            <div class="choix">
+              <input type="checkbox" id="ev1" name="types_evenements" value="Tournois"><label for="ev1">Tournois</label>
+              <input type="checkbox" id="ev2" name="types_evenements" value="Conventions et salons"><label for="ev2">Conventions et salons</label>
+              <input type="checkbox" id="ev3" name="types_evenements" value="Rencontres d'échange"><label for="ev3">Rencontres d'échange</label>
+              <input type="checkbox" id="ev4" name="types_evenements" value="Autre"><label for="ev4">Autre</label>
+            </div>
+          </fieldset>
+
+          <fieldset class="quest__q">
+            <legend>Comment faites-vous connaître vos événements aujourd'hui ? <span class="quest__aide">plusieurs réponses possibles</span></legend>
+            <div class="choix">
+              <input type="checkbox" id="pu1" name="promotion" value="Instagram"><label for="pu1">Instagram</label>
+              <input type="checkbox" id="pu2" name="promotion" value="Facebook"><label for="pu2">Facebook</label>
+              <input type="checkbox" id="pu3" name="promotion" value="Discord"><label for="pu3">Discord</label>
+              <input type="checkbox" id="pu4" name="promotion" value="Boutiques partenaires"><label for="pu4">Boutiques partenaires</label>
+              <input type="checkbox" id="pu5" name="promotion" value="Bouche-à-oreille"><label for="pu5">Bouche-à-oreille</label>
+            </div>
+          </fieldset>
+
+          <fieldset class="quest__q">
+            <legend>Une mise en avant dans Agora (30 € pour un tournoi, 150 € pour une convention) vous intéresserait-elle ?</legend>
+            <div class="choix">
+              <input type="radio" id="ma1" name="mise_en_avant" value="Oui"><label for="ma1">Oui</label>
+              <input type="radio" id="ma2" name="mise_en_avant" value="Peut-être, selon le prix"><label for="ma2">Peut-être, selon le prix</label>
+              <input type="radio" id="ma3" name="mise_en_avant" value="Non"><label for="ma3">Non</label>
+            </div>
+          </fieldset>
+        </div>
+
+        <!-- ===== Pour finir ===== -->
+        <div class="quest__q">
+          <label class="quest__label" for="remarque">Une idée ou une remarque ?</label>
+          <textarea class="quest__champ quest__zone" id="remarque" name="remarque" rows="4" maxlength="1000"></textarea>
+        </div>
+
+        <div class="quest__q">
+          <label class="quest__label" for="q-email">Votre e-mail <span class="quest__aide">facultatif, pour être prévenu de la bêta</span></label>
+          <input class="quest__champ" type="email" id="q-email" name="email" placeholder="votre@email.fr" autocomplete="email">
+          <label class="consentement">
+            <input type="checkbox" name="consentement">
+            <span>Si je laisse mon e-mail, j'accepte qu'Agora l'utilise pour me prévenir du lancement. <a href="confidentialite.html">Politique de confidentialité</a></span>
+          </label>
+        </div>
+
+        <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">
+        <p class="attente__message" role="alert" aria-live="assertive"></p>
+        <button class="btn btn--bleu quest__envoyer" type="submit">Envoyer mes réponses</button>
+      </form>
+
+      <div class="quest__merci" hidden tabindex="-1">
+        <h2>Merci pour vos réponses !</h2>
+        <p>Elles vont directement servir à construire Agora.</p>
+        <p><a class="btn btn--sombre" href="index.html">Retour à l'accueil</a></p>
+      </div>
+    </div>
+  </main>
+
+  <footer class="pied">
+    <div class="container pied__ligne">
+      <span>© 2026 Agora · Projet en développement</span>
+      <span class="pied__liens"><a href="questionnaire.html">Questionnaire</a><a href="mentions-legales.html">Mentions légales</a><a href="confidentialite.html">Confidentialité</a></span>
+    </div>
+  </footer>
+</body>
+</html>

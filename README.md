@@ -18,9 +18,11 @@ C'est un site statique en HTML, CSS et JavaScript : aucune installation ni compi
 ```
 index.html              page d'accueil (liste d'attente, chiffres, fonctionnalités, boutiques, feuille de route, contact)
 mentions-legales.html   mentions légales (éditeur, hébergeur)
-confidentialite.html    politique de confidentialité (RGPD, liste d'attente)
+confidentialite.html    politique de confidentialité (RGPD, liste d'attente, questionnaire)
+questionnaire.html      questionnaire pour collectionneurs, boutiques et organisateurs
 css/styles.css          couleurs, polices et mise en page (variables en haut du fichier)
 js/main.js              formulaire de liste d'attente, envoyé à Formspree
+js/questionnaire.js     questionnaire : questions selon le profil, envoi à Formspree
 favicon.svg             icône α de l'onglet
 .nojekyll               indique à GitHub Pages de servir les fichiers tels quels
 ```
@@ -51,6 +53,14 @@ Un champ caché `_gotcha` bloque les robots.
 Engagement pris dans la politique de confidentialité : les inscriptions sont supprimées
 au plus tard 12 mois après le lancement de l'application. Cette suppression est manuelle,
 dans Formspree.
+
+## Questionnaire
+
+`questionnaire.html` affiche des questions différentes selon le profil choisi
+(collectionneur, boutique, organisateur). Les réponses partent sur le même formulaire
+Formspree que la liste d'attente, avec le champ `formulaire: questionnaire` pour les
+distinguer. Pour les recevoir à part, créez un second formulaire Formspree et changez
+`ADRESSE_QUESTIONNAIRE` en haut de `js/questionnaire.js`.
 
 ## Règles de contenu
 
