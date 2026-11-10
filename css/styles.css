@@ -294,7 +294,7 @@ h3 { font-size: 24px; }
 
 @media (max-width: 420px) {
   .container { padding: 0 16px; }
-  .nav .btn span { display: none; }
+  .nav .btn .btn__suite { display: none; }
 }
 
 @media (prefers-reduced-motion: reduce) {
