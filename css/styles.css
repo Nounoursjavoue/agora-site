@@ -367,3 +367,4 @@ h3 { font-size: 24px; }
 .echange-ui__recu { display: flex; justify-content: center; }
 .echange-ui__recu .tcg-img { width: 72%; }
 .credit-ui { margin: -4px 0 0; font-size: .8em; color: var(--discret); text-align: right; }
+.avertissement-ui { font-weight: 800; color: var(--ambre); background: var(--ambre-pale); border-radius: 8px; padding: 5px 8px; }
