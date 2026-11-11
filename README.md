@@ -54,6 +54,13 @@ Le site est publié par GitHub Pages depuis la branche `main`, à la racine du d
 (**Settings › Pages › Deploy from a branch › `main` / `(root)`**).
 Toute modification poussée sur `main` est en ligne une à deux minutes plus tard.
 
+## Cache des navigateurs
+
+Les fichiers CSS et JS sont appelés avec un numéro de version (`css/styles.css?v=20261111`).
+Après une modification de ces fichiers, changez ce numéro dans toutes les pages (`index.html`,
+`questionnaire/`, `mentions-legales/`, `confidentialite/`) : sinon les visiteurs peuvent garder
+l'ancienne version en cache et la mélanger avec le nouveau HTML.
+
 ## Liste d'attente
 
 Le formulaire envoie l'e-mail, le profil (collectionneur ou boutique), le consentement
