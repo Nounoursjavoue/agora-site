@@ -12,7 +12,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const form = document.getElementById("form-questionnaire");
   if (!form) return;
   const message = form.querySelector(".attente__message");
-  const merci = document.querySelector(".quest__merci");
   const bouton = form.querySelector('button[type="submit"]');
   const blocs = form.querySelectorAll(".quest__bloc");
 
@@ -84,10 +83,8 @@ document.addEventListener("DOMContentLoaded", () => {
         body: JSON.stringify(donnees),
       });
       if (!reponse.ok) throw new Error("HTTP " + reponse.status);
-      form.hidden = true;
-      merci.hidden = false;
-      merci.focus();
-      window.scrollTo({ top: 0 });
+      // Retour à l'accueil, qui affiche une notification de confirmation
+      window.location.href = "../?questionnaire=merci";
     } catch (err) {
       erreur("Vos réponses n'ont pas pu être envoyées. Réessayez dans un instant.");
       bouton.disabled = false;

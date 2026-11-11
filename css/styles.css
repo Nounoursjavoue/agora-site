@@ -369,3 +369,12 @@ h3 { font-size: 24px; }
 .avertissement-ui { font-weight: 800; color: var(--ambre); background: var(--ambre-pale); border-radius: 8px; padding: 5px 8px; }
 .profil-ui .carte-ui { padding: 6px 9px; }
 .profil-ui .tcg-img--mini { width: 22px; }
+
+/* Notification (confirmation du questionnaire) */
+.notification { position: fixed; left: 50%; bottom: 24px; z-index: 100; display: flex; align-items: flex-start; gap: 12px; width: min(440px, calc(100% - 32px)); padding: 14px 16px; background: var(--encre); color: #fff; border-radius: 14px; box-shadow: 0 16px 40px rgba(17, 24, 39, .3); transform: translate(-50%, 20px); opacity: 0; transition: transform .3s ease, opacity .3s ease; }
+.notification--visible { transform: translate(-50%, 0); opacity: 1; }
+.notification p { margin: 0; flex: 1; line-height: 1.45; }
+.notification__icone { flex-shrink: 0; width: 26px; height: 26px; border-radius: 50%; background: #10B981; display: flex; align-items: center; justify-content: center; font-weight: 800; }
+.notification__fermer { flex-shrink: 0; background: none; border: 0; color: #fff; font-size: 22px; line-height: 1; cursor: pointer; padding: 0 2px; opacity: .8; }
+.notification__fermer:hover, .notification__fermer:focus-visible { opacity: 1; }
+@media (prefers-reduced-motion: reduce) { .notification { transition: none; } }

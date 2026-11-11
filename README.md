@@ -23,6 +23,7 @@ confidentialite/index.html    politique de confidentialité (RGPD, liste d'atten
 css/styles.css                couleurs, polices et mise en page (variables en haut du fichier)
 js/main.js                    formulaire de liste d'attente, envoyé à Formspree
 js/questionnaire.js           questionnaire : questions selon le profil, envoi à Formspree
+js/notification.js            message « réponses enregistrées » sur l'accueil après le questionnaire
 js/navigation.js              défilement vers les sections sans « #ancre » dans l'adresse
 *.html à la racine            anciennes adresses, redirigées vers les nouvelles
 img/cartes/                   images des cartes Pokémon des maquettes (WebP, 300 px de large)
@@ -71,6 +72,9 @@ dans Formspree.
 Formspree que la liste d'attente, avec le champ `formulaire: questionnaire` pour les
 distinguer. Pour les recevoir à part, créez un second formulaire Formspree et changez
 `ADRESSE_QUESTIONNAIRE` en haut de `js/questionnaire.js`.
+
+Après l'envoi, la personne revient sur l'accueil (`/?questionnaire=merci`) ; `js/notification.js`
+affiche une notification de confirmation puis retire le paramètre de l'adresse.
 
 ## Règles de contenu
 
