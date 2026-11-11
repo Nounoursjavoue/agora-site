@@ -69,7 +69,11 @@ document.addEventListener("DOMContentLoaded", () => {
           headers: { "Content-Type": "application/json", Accept: "application/json" },
           body: JSON.stringify(donnees),
         });
-        if (!reponse.ok) throw new Error("HTTP " + reponse.status);
+        if (!reponse.ok) {
+          const info = await reponse.json().catch(() => ({}));
+          const detail = (info.errors || []).map((e) => e.message).join(" ; ") || info.error || "";
+          throw new Error("Erreur " + reponse.status + (detail ? " : " + detail : ""));
+        }
       } else {
         console.warn("Agora : aucune ADRESSE_FORMULAIRE dans js/main.js, l'inscription n'a pas été enregistrée (mode démonstration).", donnees);
       }
@@ -77,7 +81,8 @@ document.addEventListener("DOMContentLoaded", () => {
       merci.hidden = false;
       merci.focus();
     } catch (err) {
-      erreur("L'inscription n'a pas pu être envoyée. Réessayez dans un instant.");
+      console.error("Inscription non envoyée :", err);
+      erreur("L'inscription n'a pas pu être envoyée. Réessayez dans un instant. (" + err.message + ")");
       bouton.disabled = false;
       bouton.textContent = "M'inscrire";
     }

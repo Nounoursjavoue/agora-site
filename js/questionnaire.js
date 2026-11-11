@@ -82,11 +82,17 @@ document.addEventListener("DOMContentLoaded", () => {
         headers: { "Content-Type": "application/json", Accept: "application/json" },
         body: JSON.stringify(donnees),
       });
-      if (!reponse.ok) throw new Error("HTTP " + reponse.status);
+      if (!reponse.ok) {
+        // Formspree explique le refus dans sa réponse : on l'affiche pour pouvoir corriger
+        const info = await reponse.json().catch(() => ({}));
+        const detail = (info.errors || []).map((e) => e.message).join(" ; ") || info.error || "";
+        throw new Error("Erreur " + reponse.status + (detail ? " : " + detail : ""));
+      }
       // Retour à l'accueil, qui affiche une notification de confirmation
       window.location.href = "../?questionnaire=merci";
     } catch (err) {
-      erreur("Vos réponses n'ont pas pu être envoyées. Réessayez dans un instant.");
+      console.error("Questionnaire non envoyé :", err);
+      erreur("Vos réponses n'ont pas pu être envoyées. Réessayez dans un instant. (" + err.message + ")");
       bouton.disabled = false;
       bouton.textContent = "Envoyer mes réponses";
     }
