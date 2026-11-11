@@ -378,3 +378,4 @@ h3 { font-size: 24px; }
 .notification__fermer { flex-shrink: 0; background: none; border: 0; color: #fff; font-size: 22px; line-height: 1; cursor: pointer; padding: 0 2px; opacity: .8; }
 .notification__fermer:hover, .notification__fermer:focus-visible { opacity: 1; }
 @media (prefers-reduced-motion: reduce) { .notification { transition: none; } }
+.attente__age { margin: 8px 0 0 30px; font-size: 13px; font-weight: 600; color: var(--discret); }
