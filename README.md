@@ -21,8 +21,10 @@ questionnaire/index.html      questionnaire pour collectionneurs, boutiques et o
 mentions-legales/index.html   mentions légales (éditeur, hébergeur)
 confidentialite/index.html    politique de confidentialité (RGPD, liste d'attente, questionnaire)
 css/styles.css                couleurs, polices et mise en page (variables en haut du fichier)
-js/main.js                    formulaire de liste d'attente, envoyé à Formspree
-js/questionnaire.js           questionnaire : questions selon le profil, envoi à Formspree
+js/supabase.js                adresse et clé publique Supabase, fonction d'envoi commune aux formulaires
+js/main.js                    formulaire de liste d'attente, enregistré dans Supabase
+js/questionnaire.js           questionnaire : questions selon le profil, enregistré dans Supabase
+supabase/schema.sql           tables et règles de sécurité de la base Supabase
 js/notification.js            message « réponses enregistrées » sur l'accueil après le questionnaire
 js/navigation.js              défilement vers les sections sans « #ancre » dans l'adresse
 *.html à la racine            anciennes adresses, redirigées vers les nouvelles
@@ -57,32 +59,37 @@ Toute modification poussée sur `main` est en ligne une à deux minutes plus tar
 
 ## Cache des navigateurs
 
-Les fichiers CSS et JS sont appelés avec un numéro de version (`css/styles.css?v=20261111c`).
+Les fichiers CSS et JS sont appelés avec un numéro de version (`css/styles.css?v=20261111d`).
 Après une modification de ces fichiers, changez ce numéro dans toutes les pages (`index.html`,
 `questionnaire/`, `mentions-legales/`, `confidentialite/`) : sinon les visiteurs peuvent garder
 l'ancienne version en cache et la mélanger avec le nouveau HTML.
 
-## Liste d'attente
+## Liste d'attente et questionnaire (Supabase)
 
-Le formulaire envoie l'e-mail, le profil (collectionneur ou boutique), le consentement
-et la date à Formspree (adresse dans `ADRESSE_FORMULAIRE`, en haut de `js/main.js`).
-Les inscriptions se consultent et s'exportent depuis le tableau de bord Formspree.
-Un champ caché `_gotcha` bloque les robots.
+Les deux formulaires enregistrent leurs envois dans une base **Supabase** hébergée à Paris
+(projet `ewybqexxwkkealbunlny`) :
 
-Engagement pris dans la politique de confidentialité : les inscriptions sont supprimées
-au plus tard 12 mois après le lancement de l'application. Cette suppression est manuelle,
-dans Formspree.
+- table `inscriptions` : e-mail, profil, consentement, date ;
+- table `reponses_questionnaire` : profil, réponses (en JSON), e-mail facultatif, date.
 
-## Questionnaire
+Les données se consultent et s'exportent en CSV dans **Supabase › Table Editor**.
 
-`questionnaire/index.html` affiche des questions différentes selon le profil choisi
-(collectionneur, boutique, organisateur). Les réponses partent sur le même formulaire
-Formspree que la liste d'attente, avec le champ `formulaire: questionnaire` pour les
-distinguer. Pour les recevoir à part, créez un second formulaire Formspree et changez
-`ADRESSE_QUESTIONNAIRE` en haut de `js/questionnaire.js`.
+Sécurité : le site utilise la clé **publishable** (publique par nature). Les règles de
+`supabase/schema.sql` n'autorisent les visiteurs qu'à **ajouter** une ligne, sur des colonnes
+précises : ils ne peuvent ni lire, ni modifier, ni supprimer. Pour changer une table, modifiez
+ce fichier puis relancez-le dans **SQL Editor**. Ne mettez jamais la clé `sb_secret_…` dans le site.
 
-Après l'envoi, la personne revient sur l'accueil (`/?questionnaire=merci`) ; `js/notification.js`
-affiche une notification de confirmation puis retire le paramètre de l'adresse.
+Une adresse déjà inscrite n'est pas enregistrée deux fois ; le visiteur voit quand même le
+message de remerciement, pour ne pas révéler qui est inscrit.
+
+Un champ caché `_gotcha` bloque les robots qui remplissent tous les champs.
+
+Après l'envoi du questionnaire, la personne revient sur l'accueil (`/?questionnaire=merci`) ;
+`js/notification.js` affiche une notification de confirmation puis retire le paramètre de l'adresse.
+
+Engagement pris dans la politique de confidentialité : les données sont supprimées au plus tard
+12 mois après le lancement de l'application, dans Supabase, dans Formspree (anciens envois,
+jusqu'au 11 novembre 2026) et dans la boîte Gmail du projet. Cette suppression est manuelle.
 
 ## Règles de contenu
 

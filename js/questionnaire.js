@@ -1,12 +1,10 @@
 /* ==========================================================
    Agora — questionnaire
-   Les réponses sont envoyées à Formspree, avec le champ
-   « formulaire : questionnaire » pour les distinguer des
-   inscriptions à la liste d'attente.
-   Pour les recevoir dans un formulaire Formspree séparé,
-   créez-en un second et remplacez l'adresse ci-dessous.
+   Les réponses sont enregistrées dans Supabase, table
+   « reponses_questionnaire » (voir js/supabase.js et
+   supabase/schema.sql) : le profil, l'e-mail s'il est donné,
+   et toutes les autres réponses regroupées dans « reponses ».
    ========================================================== */
-const ADRESSE_QUESTIONNAIRE = "https://formspree.io/f/xgaagzwk";
 
 document.addEventListener("DOMContentLoaded", () => {
   const form = document.getElementById("form-questionnaire");
@@ -55,11 +53,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (email && !form.consentement.checked) return erreur("Cochez la case pour que nous puissions utiliser votre e-mail, ou laissez le champ vide.", form.consentement);
 
     // Réponses : seulement les questions affichées ; les choix multiples sont regroupés
-    const donnees = {
-      formulaire: "questionnaire",
-      _subject: "Agora : nouvelle réponse au questionnaire",
-      date: new Date().toISOString(),
-    };
+    const reponses = {};
     const champs = [...form.elements].filter((el) => el.name && !el.name.startsWith("_") && el.name !== "consentement" && !el.closest("[hidden]"));
     const noms = [...new Set(champs.map((el) => el.name))];
     noms.forEach((nom) => {
@@ -67,27 +61,19 @@ document.addEventListener("DOMContentLoaded", () => {
         .filter((el) => el.name === nom && (!["radio", "checkbox"].includes(el.type) || el.checked))
         .map((el) => el.value.trim())
         .filter(Boolean);
-      if (valeurs.length) donnees[nom] = valeurs.join(" ; ");
+      if (valeurs.length && nom !== "profil" && nom !== "email") reponses[nom] = valeurs.join(" ; ");
     });
-    if (email) {
-      donnees.email = email;
-      donnees.consentement = "oui";
-    }
+    const donnees = {
+      profil: profil.value,
+      reponses,
+      email: email ? email.toLowerCase() : null,
+      consentement: Boolean(email),
+    };
 
     bouton.disabled = true;
     bouton.textContent = "Envoi…";
     try {
-      const reponse = await fetch(ADRESSE_QUESTIONNAIRE, {
-        method: "POST",
-        headers: { "Content-Type": "application/json", Accept: "application/json" },
-        body: JSON.stringify(donnees),
-      });
-      if (!reponse.ok) {
-        // Formspree explique le refus dans sa réponse : on l'affiche pour pouvoir corriger
-        const info = await reponse.json().catch(() => ({}));
-        const detail = (info.errors || []).map((e) => e.message).join(" ; ") || info.error || "";
-        throw new Error("Erreur " + reponse.status + (detail ? " : " + detail : ""));
-      }
+      await envoyerSupabase("reponses_questionnaire", donnees);
       // Retour à l'accueil, qui affiche une notification de confirmation
       window.location.href = "../?questionnaire=merci";
     } catch (err) {

@@ -1,14 +1,8 @@
 /* ==========================================================
    Agora — liste d'attente
-   ----------------------------------------------------------
-   Pour enregistrer les inscriptions, créez un formulaire chez
-   un service gratuit (Formspree, Getform, Basin…) et collez
-   son adresse d'envoi ci-dessous, par exemple :
-   const ADRESSE_FORMULAIRE = "https://formspree.io/f/abcdwxyz";
-   Tant que c'est vide, le formulaire affiche le message de
-   remerciement SANS rien enregistrer (mode démonstration).
+   Les inscriptions sont enregistrées dans Supabase, table
+   « inscriptions » (voir js/supabase.js et supabase/schema.sql).
    ========================================================== */
-const ADRESSE_FORMULAIRE = "https://formspree.io/f/xgaagzwk";
 
 document.addEventListener("DOMContentLoaded", () => {
   const annee = document.getElementById("annee");
@@ -52,31 +46,16 @@ document.addEventListener("DOMContentLoaded", () => {
     if (form._gotcha && form._gotcha.value) return;
 
     const donnees = {
-      email: email.value.trim(),
+      email: email.value.trim().toLowerCase(),
       profil: form.profil.value,
-      consentement: "oui",
-      date: new Date().toISOString(),
-      _subject: "Agora : nouvelle inscription à la liste d'attente",
+      consentement: true,
     };
 
     bouton.disabled = true;
     bouton.textContent = "Envoi…";
 
     try {
-      if (ADRESSE_FORMULAIRE) {
-        const reponse = await fetch(ADRESSE_FORMULAIRE, {
-          method: "POST",
-          headers: { "Content-Type": "application/json", Accept: "application/json" },
-          body: JSON.stringify(donnees),
-        });
-        if (!reponse.ok) {
-          const info = await reponse.json().catch(() => ({}));
-          const detail = (info.errors || []).map((e) => e.message).join(" ; ") || info.error || "";
-          throw new Error("Erreur " + reponse.status + (detail ? " : " + detail : ""));
-        }
-      } else {
-        console.warn("Agora : aucune ADRESSE_FORMULAIRE dans js/main.js, l'inscription n'a pas été enregistrée (mode démonstration).", donnees);
-      }
+      await envoyerSupabase("inscriptions", donnees, { ignorerDoublon: true });
       form.hidden = true;
       merci.hidden = false;
       merci.focus();
