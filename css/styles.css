@@ -1,3 +1,13 @@
+/* Polices hébergées sur le site (licence SIL OFL, voir fonts/) : aucun appel à Google Fonts */
+@font-face { font-family: 'Manrope'; font-style: normal; font-weight: 400; font-display: swap; src: url(../fonts/manrope-400.woff) format('woff'); }
+@font-face { font-family: 'Manrope'; font-style: normal; font-weight: 600; font-display: swap; src: url(../fonts/manrope-600.woff) format('woff'); }
+@font-face { font-family: 'Manrope'; font-style: normal; font-weight: 700; font-display: swap; src: url(../fonts/manrope-700.woff) format('woff'); }
+@font-face { font-family: 'Manrope'; font-style: normal; font-weight: 800; font-display: swap; src: url(../fonts/manrope-800.woff) format('woff'); }
+@font-face { font-family: 'Bricolage Grotesque'; font-style: normal; font-weight: 700; font-display: swap; src: url(../fonts/bricolage-grotesque-700.woff) format('woff'); }
+@font-face { font-family: 'Bricolage Grotesque'; font-style: normal; font-weight: 800; font-display: swap; src: url(../fonts/bricolage-grotesque-800.woff) format('woff'); }
+@font-face { font-family: 'Cinzel'; font-style: normal; font-weight: 700; font-display: swap; src: url(../fonts/cinzel-700.woff) format('woff'); }
+@font-face { font-family: 'GFS Didot'; font-style: normal; font-weight: 400; font-display: swap; src: url(../fonts/gfs-didot-400.woff) format('woff'); }
+
 /* ==========================================================
    Agora — site vitrine
    Couleurs, typographies et composants
