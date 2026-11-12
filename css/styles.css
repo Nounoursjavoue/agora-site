@@ -13,7 +13,8 @@
    Couleurs, typographies et composants
    ========================================================== */
 
-:root {
+:root,
+.telephone {
   --bleu: #3348E8;
   --bleu-fonce: #2638C4;
   --bleu-pale: #EEF0FF;
@@ -29,6 +30,15 @@
   --ambre: #92400E;
   --ambre-pale: #FEF3C7;
   --or: #FFC86B;
+  --bleu-survol: #2638C4;
+  --inverse-fond: #111827;
+  --inverse-texte: #FFFFFF;
+  --inverse-survol: #000000;
+  --lien-survol: #1A2A9E;
+  --erreur: #B42318;
+  --succes: #065F46;
+  --pied-note: #9CA3AF;
+  color-scheme: light;
 
   --police-titre: 'Bricolage Grotesque', system-ui, sans-serif;
   --police-texte: 'Manrope', system-ui, sans-serif;
@@ -39,9 +49,85 @@
   --largeur: 1200px;
 }
 
+/* ---------- Mode sombre ----------
+   Choisi par le bouton de l'en-tête (data-theme), sinon celui de
+   l'appareil. Les écrans de téléphone gardent les couleurs de
+   l'application (ils redéfinissent les variables claires). */
+:root[data-theme="dark"] {
+  --bleu: #4A5DF0;
+  --bleu-fonce: #AEB8FF;
+  --bleu-pale: #1C2346;
+  --encre: #F3F4F6;
+  --texte: #D1D5DB;
+  --discret: #A7AEBB;
+  --fond: #0E121B;
+  --surface: #161B27;
+  --ligne: #283042;
+  --bordure: #3A4357;
+  --vert: #34D399;
+  --vert-pale: #0E3A2C;
+  --ambre: #FBBF24;
+  --ambre-pale: #3A2A0B;
+  --bleu-survol: #3446D6;
+  --inverse-fond: #F3F4F6;
+  --inverse-texte: #111827;
+  --inverse-survol: #FFFFFF;
+  --lien-survol: #D3D9FF;
+  --erreur: #FCA5A5;
+  --succes: #6EE7B7;
+  --pied-note: #8B93A3;
+  color-scheme: dark;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+  --bleu: #4A5DF0;
+  --bleu-fonce: #AEB8FF;
+  --bleu-pale: #1C2346;
+  --encre: #F3F4F6;
+  --texte: #D1D5DB;
+  --discret: #A7AEBB;
+  --fond: #0E121B;
+  --surface: #161B27;
+  --ligne: #283042;
+  --bordure: #3A4357;
+  --vert: #34D399;
+  --vert-pale: #0E3A2C;
+  --ambre: #FBBF24;
+  --ambre-pale: #3A2A0B;
+  --bleu-survol: #3446D6;
+  --inverse-fond: #F3F4F6;
+  --inverse-texte: #111827;
+  --inverse-survol: #FFFFFF;
+  --lien-survol: #D3D9FF;
+  --erreur: #FCA5A5;
+  --succes: #6EE7B7;
+  --pied-note: #8B93A3;
+  color-scheme: dark;
+  }
+}
+:root .telephone { color-scheme: light; }
+.telephone { color: var(--encre); font-family: var(--police-texte); }
+:root[data-theme="dark"] .chiffre--sombre { background: #070A10; border-color: var(--bordure); }
+:root[data-theme="dark"] .pied { background: #070A10; border-top: 1px solid var(--ligne); }
+
+/* ---------- Police adaptée à la dyslexie ---------- */
+@font-face { font-family: 'OpenDyslexic'; font-style: normal; font-weight: 400; font-display: swap; src: url(../fonts/opendyslexic-400.woff2) format('woff2'); }
+@font-face { font-family: 'OpenDyslexic'; font-style: normal; font-weight: 700 800; font-display: swap; src: url(../fonts/opendyslexic-700.woff2) format('woff2'); }
+:root[data-police="dyslexie"] {
+  --police-titre: 'OpenDyslexic', system-ui, sans-serif;
+  --police-texte: 'OpenDyslexic', system-ui, sans-serif;
+}
+:root[data-police="dyslexie"] body { line-height: 1.75; }
+/* OpenDyslexic est déjà très espacée : titres un peu plus petits pour garder la mise en page */
+:root[data-police="dyslexie"] h1, :root[data-police="dyslexie"] h2, :root[data-police="dyslexie"] h3 { letter-spacing: 0; line-height: 1.3; }
+:root[data-police="dyslexie"] h1 { font-size: clamp(30px, 4vw, 46px); }
+:root[data-police="dyslexie"] h2 { font-size: clamp(24px, 3vw, 34px); }
+@media (max-width: 1500px) { :root[data-police="dyslexie"] .nav a:not(.btn) { display: none; } }
+:root[data-police="dyslexie"] .telephone { --police-titre: 'Bricolage Grotesque', system-ui, sans-serif; --police-texte: 'Manrope', system-ui, sans-serif; letter-spacing: normal; word-spacing: normal; line-height: 1.55; }
+
 *, *::before, *::after { box-sizing: border-box; }
 
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; scroll-padding: 96px 0 96px; }
 
 body {
   margin: 0;
@@ -56,7 +142,7 @@ body {
 img, svg { display: block; }
 
 a { color: var(--bleu-fonce); }
-a:hover { color: #1A2A9E; }
+a:hover { color: var(--lien-survol); }
 
 :focus-visible { outline: 3px solid var(--bleu); outline-offset: 3px; border-radius: 6px; }
 
@@ -67,9 +153,9 @@ a:hover { color: #1A2A9E; }
 
 .skip-link {
   position: absolute; left: 16px; top: -60px; z-index: 100;
-  background: var(--encre); color: #fff; padding: 10px 16px; border-radius: 10px; font-weight: 700;
+  background: var(--inverse-fond); color: var(--inverse-texte); padding: 10px 16px; border-radius: 10px; font-weight: 700;
 }
-.skip-link:focus { top: 12px; color: #fff; }
+.skip-link:focus { top: 12px; color: var(--inverse-texte); }
 
 .container { max-width: var(--largeur); margin: 0 auto; padding: 0 24px; }
 
@@ -97,10 +183,10 @@ h3 { font-size: 24px; }
   transition: transform .15s ease, background-color .15s ease;
 }
 .btn:hover { transform: translateY(-1px); }
-.btn--sombre { background: var(--encre); color: #fff; }
-.btn--sombre:hover { background: #000; color: #fff; }
+.btn--sombre { background: var(--inverse-fond); color: var(--inverse-texte); }
+.btn--sombre:hover { background: var(--inverse-survol); color: var(--inverse-texte); }
 .btn--bleu { background: var(--bleu); color: #fff; }
-.btn--bleu:hover { background: var(--bleu-fonce); color: #fff; }
+.btn--bleu:hover { background: var(--bleu-survol); color: #fff; }
 .btn--contour { background: var(--surface); color: var(--encre); border: 1px solid var(--bordure); }
 .btn--contour:hover { color: var(--encre); border-color: var(--encre); }
 
@@ -145,7 +231,7 @@ h3 { font-size: 24px; }
   min-height: 44px; padding: 0 16px; border-radius: 999px; border: 1px solid var(--bordure);
   background: var(--surface); display: flex; align-items: center; font-size: 14px; font-weight: 800; cursor: pointer;
 }
-.choix input:checked + label { background: var(--encre); color: #fff; border-color: var(--encre); }
+.choix input:checked + label { background: var(--inverse-fond); color: var(--inverse-texte); border-color: var(--inverse-fond); }
 .choix input:focus-visible + label { outline: 3px solid var(--bleu); outline-offset: 2px; }
 
 .attente__ligne { display: flex; flex-wrap: wrap; gap: 10px; }
@@ -157,8 +243,8 @@ h3 { font-size: 24px; }
 .consentement { display: flex; gap: 10px; align-items: flex-start; margin-top: 14px; font-size: 13px; color: var(--discret); }
 .consentement input { width: 18px; height: 18px; margin-top: 2px; accent-color: var(--bleu); flex-shrink: 0; }
 .attente__message { margin: 12px 0 0; font-size: 14px; font-weight: 700; }
-.attente__message--erreur { color: #B42318; }
-.attente__merci h3 { font-family: var(--police-texte); font-size: 19px; color: #065F46; margin-bottom: 6px; }
+.attente__message--erreur { color: var(--erreur); }
+.attente__merci h3 { font-family: var(--police-texte); font-size: 19px; color: var(--succes); margin-bottom: 6px; }
 .attente__merci p { margin: 0; color: var(--texte); }
 
 /* ---------- Chiffres ---------- */
@@ -167,9 +253,9 @@ h3 { font-size: 24px; }
 .chiffre__valeur { font-family: var(--police-titre); font-size: 54px; font-weight: 800; color: var(--bleu-fonce); line-height: 1; }
 .chiffre__texte { font-size: 17px; font-weight: 600; margin: 12px 0 10px; }
 .chiffre__source { font-size: 13px; color: var(--discret); }
-.chiffre--sombre { background: var(--encre); border-color: var(--encre); color: #fff; }
+.chiffre--sombre { background: #111827; border-color: #111827; color: #fff; }
 .chiffre--sombre .chiffre__valeur { color: var(--or); }
-.chiffre--sombre .chiffre__source { color: var(--bordure); }
+.chiffre--sombre .chiffre__source { color: #C9CEDB; }
 
 /* ---------- Fonctionnalités ---------- */
 .axes { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; }
@@ -207,11 +293,12 @@ h3 { font-size: 24px; }
 .carte-contact p { color: var(--texte); margin: 12px 0 18px; }
 
 /* ---------- Pied de page ---------- */
-.pied { background: var(--encre); color: var(--bordure); padding: 32px 0; font-size: 14px; }
+.pied { background: #111827; color: #C9CEDB; padding: 32px 0; font-size: 14px; }
 .pied__ligne { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px 24px; }
-.pied a { color: var(--ligne); }
+.pied a { color: #E3E6EE; }
+.pied a:hover { color: #FFFFFF; }
 .pied__liens { display: flex; gap: 16px; }
-.pied__note { flex-basis: 100%; font-size: 12px; color: #9CA3AF; margin: 0; }
+.pied__note { flex-basis: 100%; font-size: 12px; color: var(--pied-note); margin: 0; }
 
 /* ---------- Pages légales ---------- */
 .legal { background: var(--surface); padding: 64px 0 88px; }
@@ -338,7 +425,7 @@ h3 { font-size: 24px; }
 .quest .choix label { min-height: 44px; height: auto; padding: 8px 16px; line-height: 1.3; }
 .choix input:disabled + label { opacity: .45; cursor: not-allowed; }
 .quest__envoyer { align-self: flex-start; min-height: 52px; font-size: 16px; }
-.quest__merci h2 { color: #065F46; margin-bottom: 8px; }
+.quest__merci h2 { color: var(--succes); margin-bottom: 8px; }
 .questionnaire-appel { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 20px; background: var(--surface); border: 1px solid var(--ligne); border-radius: 24px; padding: 32px; }
 .questionnaire-appel h2 { font-size: 28px; }
 .questionnaire-appel p { margin: 8px 0 0; color: var(--texte); max-width: 620px; }
@@ -381,11 +468,27 @@ h3 { font-size: 24px; }
 .profil-ui .tcg-img--mini { width: 22px; }
 
 /* Notification (confirmation du questionnaire) */
-.notification { position: fixed; left: 50%; bottom: 24px; z-index: 100; display: flex; align-items: flex-start; gap: 12px; width: min(440px, calc(100% - 32px)); padding: 14px 16px; background: var(--encre); color: #fff; border-radius: 14px; box-shadow: 0 16px 40px rgba(17, 24, 39, .3); transform: translate(-50%, 20px); opacity: 0; transition: transform .3s ease, opacity .3s ease; }
+.notification { position: fixed; left: 50%; bottom: 24px; z-index: 100; display: flex; align-items: flex-start; gap: 12px; width: min(440px, calc(100% - 32px)); padding: 14px 16px; background: var(--inverse-fond); color: var(--inverse-texte); border-radius: 14px; box-shadow: 0 16px 40px rgba(17, 24, 39, .3); transform: translate(-50%, 20px); opacity: 0; transition: transform .3s ease, opacity .3s ease; }
 .notification--visible { transform: translate(-50%, 0); opacity: 1; }
 .notification p { margin: 0; flex: 1; line-height: 1.45; }
 .notification__icone { flex-shrink: 0; width: 26px; height: 26px; border-radius: 50%; background: #10B981; display: flex; align-items: center; justify-content: center; font-weight: 800; }
-.notification__fermer { flex-shrink: 0; background: none; border: 0; color: #fff; font-size: 22px; line-height: 1; cursor: pointer; padding: 0 2px; opacity: .8; }
+.notification__fermer { flex-shrink: 0; background: none; border: 0; color: inherit; font-size: 22px; line-height: 1; cursor: pointer; padding: 0 2px; opacity: .8; }
 .notification__fermer:hover, .notification__fermer:focus-visible { opacity: 1; }
 @media (prefers-reduced-motion: reduce) { .notification { transition: none; } }
 .attente__age { margin: 8px 0 0 30px; font-size: 13px; font-weight: 600; color: var(--discret); }
+
+/* ---------- Boutons d'affichage (en-tête) ---------- */
+.reglages { display: flex; gap: 6px; margin-left: auto; }
+.reglage {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 44px; height: 44px; border-radius: 12px; cursor: pointer;
+  background: var(--surface); color: var(--encre); border: 1px solid var(--bordure);
+  font: 800 13px var(--police-texte);
+}
+.reglage:hover { border-color: var(--bleu-fonce); color: var(--bleu-fonce); }
+.reglage[aria-pressed="true"] { background: var(--inverse-fond); color: var(--inverse-texte); border-color: var(--inverse-fond); }
+.reglage--texte span[aria-hidden] { font-family: 'OpenDyslexic', var(--police-texte); font-size: 12px; }
+.reglage__soleil { display: none; }
+:root[data-theme="dark"] .reglage__lune { display: none; }
+:root[data-theme="dark"] .reglage__soleil { display: block; }
+@media (max-width: 420px) { .reglage { width: 40px; height: 40px; } .reglages { gap: 4px; } }

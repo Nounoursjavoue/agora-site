@@ -26,10 +26,11 @@ js/main.js                    formulaire de liste d'attente, enregistré dans Su
 js/questionnaire.js           questionnaire : questions selon le profil, enregistré dans Supabase
 supabase/schema.sql           tables et règles de sécurité de la base Supabase
 js/notification.js            message « réponses enregistrées » sur l'accueil après le questionnaire
+js/preferences.js             mode sombre et police dyslexie (boutons de l'en-tête, choix gardé dans le navigateur)
 js/navigation.js              défilement vers les sections sans « #ancre » dans l'adresse
 *.html à la racine            anciennes adresses, redirigées vers les nouvelles
 img/cartes/                   images des cartes Pokémon des maquettes (WebP, 300 px de large)
-fonts/                        polices du site (WOFF, réduites aux caractères latins) et leurs licences OFL
+fonts/                        polices du site (dont OpenDyslexic en WOFF2) (WOFF, réduites aux caractères latins) et leurs licences OFL
 favicon.svg                   icône α de l'onglet
 .nojekyll                     indique à GitHub Pages de servir les fichiers tels quels
 ```
@@ -59,7 +60,7 @@ Toute modification poussée sur `main` est en ligne une à deux minutes plus tar
 
 ## Cache des navigateurs
 
-Les fichiers CSS et JS sont appelés avec un numéro de version (`css/styles.css?v=20261111d`).
+Les fichiers CSS et JS sont appelés avec un numéro de version (`css/styles.css?v=20261112`).
 Après une modification de ces fichiers, changez ce numéro dans toutes les pages (`index.html`,
 `questionnaire/`, `mentions-legales/`, `confidentialite/`) : sinon les visiteurs peuvent garder
 l'ancienne version en cache et la mélanger avec le nouveau HTML.

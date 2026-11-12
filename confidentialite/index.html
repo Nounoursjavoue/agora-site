@@ -6,21 +6,34 @@
   <title>Politique de confidentialité — Agora</title>
   <meta name="robots" content="noindex">
   <link rel="icon" href="../favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="../css/styles.css?v=20261111d">
-  <script src="../js/navigation.js?v=20261111d" defer></script>
+  <script src="../js/preferences.js?v=20261112"></script>
+  <link rel="stylesheet" href="../css/styles.css?v=20261112">
+  <script src="../js/navigation.js?v=20261112" defer></script>
 </head>
 <body>
+  <a class="skip-link" href="#contenu">Aller au contenu</a>
   <header class="entete">
     <div class="container entete__barre">
       <a class="logo" href="../" aria-label="Agora, retour à l'accueil">
         <span class="logo__alpha" aria-hidden="true">α</span>
         <span class="logo__nom" aria-hidden="true">AGORA</span>
       </a>
+      <div class="reglages" role="group" aria-label="Affichage">
+        <button type="button" class="reglage" data-reglage="theme" aria-pressed="false" title="Mode sombre">
+          <svg class="reglage__lune" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
+          <svg class="reglage__soleil" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          <span class="visually-hidden">Mode sombre</span>
+        </button>
+        <button type="button" class="reglage reglage--texte" data-reglage="police" aria-pressed="false" title="Police adaptée à la dyslexie">
+          <span aria-hidden="true">Dys</span>
+          <span class="visually-hidden">Police adaptée à la dyslexie</span>
+        </button>
+      </div>
       <nav class="nav" aria-label="Navigation principale"><a class="btn btn--sombre" href="../#inscription"><span>Rejoindre<span class="btn__suite"> la liste d'attente</span></span></a></nav>
     </div>
   </header>
 
-  <main class="legal">
+  <main class="legal" id="contenu">
     <div class="container">
       <h1>Politique de confidentialité</h1>
       <h2>Qui est responsable de vos données ?</h2>
@@ -65,6 +78,7 @@
 
       <h2>Cookies</h2>
       <p>Ce site ne dépose aucun cookie, ni publicitaire ni de mesure d'audience.</p>
+      <p>Si vous utilisez les boutons « Mode sombre » ou « Police adaptée à la dyslexie », votre choix est gardé dans votre navigateur (stockage local) pour les prochaines visites. Il n'est envoyé nulle part, et vous pouvez l'effacer en effaçant les données du site dans votre navigateur.</p>
     </div>
   </main>
 
