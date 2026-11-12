@@ -485,7 +485,8 @@ h3 { font-size: 24px; }
 .attente__age { margin: 8px 0 0 30px; font-size: 13px; font-weight: 600; color: var(--discret); }
 
 /* ---------- Boutons d'affichage (en-tête) ---------- */
-.reglages { display: flex; gap: 6px; margin-left: auto; }
+.reglages { display: flex; gap: 6px; margin-left: 8px; }
+.reglages + .nav { margin-left: auto; }
 .reglage {
   display: inline-flex; align-items: center; justify-content: center;
   width: 44px; height: 44px; border-radius: 12px; cursor: pointer;
