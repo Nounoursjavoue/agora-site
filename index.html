@@ -3,22 +3,59 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Agora — la place où les collectionneurs se retrouvent</title>
-  <meta name="description" content="Agora réunit réseau social et place de marché pour collectionneurs : inventaire, wishlist, échanges en confiance et boutiques locales. Lancement en France avec les cartes Pokémon.">
+  <title>Agora Trade — application d'échange de cartes Pokémon entre collectionneurs</title>
+  <meta name="description" content="Agora Trade, l'application d'échange (trade) de cartes Pokémon entre collectionneurs : gérez votre collection, trouvez les cartes qui vous manquent et échangez en confiance près de chez vous. En développement, inscrivez-vous à la liste d'attente.">
   <meta name="theme-color" content="#3348E8">
+  <link rel="canonical" href="https://agora-trade.fr/">
 
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Agora — la place où les collectionneurs se retrouvent">
-  <meta property="og:description" content="Gérez votre collection, échangez en confiance et retrouvez les boutiques près de chez vous.">
+  <meta property="og:site_name" content="Agora Trade">
+  <meta property="og:url" content="https://agora-trade.fr/">
+  <meta property="og:title" content="Agora Trade — l'application d'échange de cartes Pokémon">
+  <meta property="og:description" content="Gérez votre collection, échangez vos cartes Pokémon en confiance et retrouvez les boutiques près de chez vous.">
+  <meta property="og:image" content="https://agora-trade.fr/img/partage.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Agora Trade, l'application d'échange de cartes Pokémon entre collectionneurs">
   <meta property="og:locale" content="fr_FR">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@agoratradefr">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": "https://agora-trade.fr/#site",
+        "name": "Agora Trade",
+        "alternateName": ["Agora", "agora-trade.fr"],
+        "url": "https://agora-trade.fr/",
+        "inLanguage": "fr-FR",
+        "publisher": { "@id": "https://agora-trade.fr/#organisation" }
+      },
+      {
+        "@type": "Organization",
+        "@id": "https://agora-trade.fr/#organisation",
+        "name": "Agora Trade",
+        "alternateName": "Agora",
+        "url": "https://agora-trade.fr/",
+        "logo": "https://agora-trade.fr/img/logo-agora.png",
+        "email": "agoratradefr@gmail.com",
+        "sameAs": ["https://www.instagram.com/agoratradefr/", "https://x.com/agoratradefr"]
+      }
+    ]
+  }
+  </script>
 
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
-  <script src="js/preferences.js?v=20261112c"></script>
-  <link rel="stylesheet" href="css/styles.css?v=20261112c">
-  <script src="js/supabase.js?v=20261112c" defer></script>
-  <script src="js/main.js?v=20261112c" defer></script>
-  <script src="js/navigation.js?v=20261112c" defer></script>
-  <script src="js/notification.js?v=20261112c" defer></script>
+  <link rel="apple-touch-icon" href="img/logo-agora.png">
+  <script src="js/preferences.js?v=20261113"></script>
+  <link rel="stylesheet" href="css/styles.css?v=20261113">
+  <script src="js/supabase.js?v=20261113" defer></script>
+  <script src="js/main.js?v=20261113" defer></script>
+  <script src="js/navigation.js?v=20261113" defer></script>
+  <script src="js/notification.js?v=20261113" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#contenu">Aller au contenu</a>
@@ -59,9 +96,9 @@
     <section class="hero" id="haut">
       <div class="container hero__grille">
         <div class="hero__texte">
-          <span class="badge">En développement · cartes Pokémon d'abord</span>
+          <span class="badge">Application d'échange de cartes Pokémon · en développement</span>
           <h1>La place où les collectionneurs se retrouvent.</h1>
-          <p class="hero__accroche">Gérez votre collection, échangez en confiance et retrouvez les boutiques près de chez vous. Agora démarre avec le TCG Pokémon, puis s'ouvrira à toutes vos collections.</p>
+          <p class="hero__accroche">Gérez votre collection, échangez vos cartes en confiance et retrouvez les boutiques près de chez vous. Agora Trade démarre avec le TCG Pokémon, puis s'ouvrira à toutes vos collections.</p>
 
           <div class="attente" id="inscription">
             <form id="form-attente" novalidate>
@@ -446,6 +483,38 @@
       </div>
     </section>
 
+    <!-- ================= QUESTIONS FRÉQUENTES ================= -->
+    <section class="section section--blanche" id="faq" aria-labelledby="titre-faq">
+      <div class="container">
+        <div class="intro">
+          <span class="surtitre">Questions fréquentes</span>
+          <h2 id="titre-faq">Tout savoir sur Agora Trade.</h2>
+        </div>
+        <div class="faq">
+          <details>
+            <summary>Qu'est-ce qu'Agora Trade ?</summary>
+            <p>Agora Trade est une application d'échange et de vente entre collectionneurs, en cours de développement. Elle réunit un réseau social et une place de marché : vous y gérez votre collection, vous trouvez les cartes qui vous manquent et vous échangez (« trade ») avec d'autres collectionneurs près de chez vous.</p>
+          </details>
+          <details>
+            <summary>Comment échanger ses cartes Pokémon en confiance ?</summary>
+            <p>Sur Agora, chaque échange de cartes Pokémon est suivi en quatre étapes, de la proposition jusqu'à la note laissée à l'autre membre. La remise se fait en main propre, dans une boutique partenaire ou par la poste. La réputation des membres et une cote indicative de chaque carte aident à savoir avec qui échanger et si l'échange est équilibré.</p>
+          </details>
+          <details>
+            <summary>L'application est-elle déjà disponible ?</summary>
+            <p>Pas encore : Agora est en développement. Inscrivez-vous à la <a href="#inscription">liste d'attente</a> pour être prévenu de l'ouverture de la bêta, et répondez au <a href="questionnaire/">questionnaire</a> pour nous aider à la construire.</p>
+          </details>
+          <details>
+            <summary>Est-ce gratuit ?</summary>
+            <p>Oui, l'inscription et les fonctions de base seront gratuites. Un abonnement Premium facultatif est prévu, à 4,99 € par mois, avec le matching de wishlist, le suivi de la valeur de la collection et des statistiques.</p>
+          </details>
+          <details>
+            <summary>Quelles collections pourra-t-on échanger ?</summary>
+            <p>Agora commence avec les cartes Pokémon (TCG) en France, puis s'ouvrira aux autres jeux de cartes et à toutes les collections.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
     <!-- ================= CONTACT ================= -->
     <section class="section" id="contact">
       <div class="container contacts">
@@ -476,7 +545,7 @@
   <!-- ================= PIED DE PAGE ================= -->
   <footer class="pied">
     <div class="container pied__ligne">
-      <span>© <span id="annee">2026</span> Agora · Projet en développement</span>
+      <span>© <span id="annee">2026</span> Agora Trade · Projet en développement</span>
       <span class="pied__liens">
         <a href="questionnaire/">Questionnaire</a>
         <a href="mentions-legales/">Mentions légales</a>

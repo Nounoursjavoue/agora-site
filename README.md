@@ -31,6 +31,9 @@ js/navigation.js              défilement vers les sections sans « #ancre » da
 *.html à la racine            anciennes adresses, redirigées vers les nouvelles
 img/cartes/                   images des cartes Pokémon des maquettes (WebP, 300 px de large)
 fonts/                        polices du site (dont OpenDyslexic en WOFF2) (WOFF, réduites aux caractères latins) et leurs licences OFL
+robots.txt, sitemap.xml        référencement : pages autorisées et liste des pages pour Google
+img/partage.png               image d'aperçu quand le lien est partagé (1200 × 630)
+img/logo-agora.png            logo carré (Google, icône d'écran d'accueil)
 favicon.svg                   icône α de l'onglet
 .nojekyll                     indique à GitHub Pages de servir les fichiers tels quels
 ```
@@ -60,7 +63,7 @@ Toute modification poussée sur `main` est en ligne une à deux minutes plus tar
 
 ## Cache des navigateurs
 
-Les fichiers CSS et JS sont appelés avec un numéro de version (`css/styles.css?v=20261112c`).
+Les fichiers CSS et JS sont appelés avec un numéro de version (`css/styles.css?v=20261113`).
 Après une modification de ces fichiers, changez ce numéro dans toutes les pages (`index.html`,
 `questionnaire/`, `mentions-legales/`, `confidentialite/`) : sinon les visiteurs peuvent garder
 l'ancienne version en cache et la mélanger avec le nouveau HTML.
@@ -102,6 +105,15 @@ Agora repose sur la confiance : le site ne doit contenir que des informations vr
 - Les images de cartes Pokémon portent la mention « © Pokémon » sous chaque groupe de cartes, et la
   mention de marque reste en pied de page. Pas de logo Pokémon ni de partenariat suggéré.
 - Tout nouveau prestataire qui reçoit des données doit être ajouté à `confidentialite/index.html`.
+
+## Référencement (SEO)
+
+- Titre, description, lien canonique, aperçu de partage (Open Graph / X) et données structurées
+  (`WebSite` et `Organization`, nom « Agora Trade ») sont dans le `<head>` de `index.html`.
+- `sitemap.xml` liste les pages à indexer : ajoutez-y toute nouvelle page publique et mettez à jour
+  `lastmod`. Les mentions légales et la confidentialité sont en `noindex`.
+- Le site est déclaré dans **Google Search Console** (propriété de domaine `agora-trade.fr`,
+  vérifiée par un enregistrement TXT chez IONOS), où le sitemap est envoyé.
 
 ## Nom de domaine
 
